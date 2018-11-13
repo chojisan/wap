@@ -11,10 +11,11 @@
 |
 */
 
-Route::get('backend', function () {
-	return 'backend';
-})->name('backend');
+// /auth/login
+// /auth/logout
 
-Route::prefix('core')->group(function() {
-    Route::get('/', 'CoreController@index');
+Route::prefix('auth')->group(function() {
+    Route::get('/login', 'AuthController@login');
+    Route::post('/login', 'AuthController@authenticate');
+    Route::get('/logout', 'AuthController@logout');
 });
