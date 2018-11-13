@@ -1,10 +1,10 @@
 {
-    "name": "nwidart/plugin",
+    "name": "takada/plugin",
     "description": "",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Choji Takada",
+            "email": "choji.takada@gmail.com"
         }
     ],
     "extra": {
@@ -12,9 +12,7 @@
             "providers": [
                 "Modules\\Plugin\\Providers\\PluginServiceProvider"
             ],
-            "aliases": {
-                
-            }
+            "aliases": {}
         }
     },
     "autoload": {

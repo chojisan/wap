@@ -1,10 +1,10 @@
 {
-    "name": "nwidart/user",
+    "name": "takada/user",
     "description": "",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Choji Takada",
+            "email": "choji.takada@gmail.com"
         }
     ],
     "extra": {
@@ -12,9 +12,7 @@
             "providers": [
                 "Modules\\User\\Providers\\UserServiceProvider"
             ],
-            "aliases": {
-                
-            }
+            "aliases": {}
         }
     },
     "autoload": {

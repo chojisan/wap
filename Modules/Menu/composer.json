@@ -1,10 +1,10 @@
 {
-    "name": "nwidart/menu",
+    "name": "takada/menu",
     "description": "",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Choji Takada",
+            "email": "choji.takada@gmail.com"
         }
     ],
     "extra": {
@@ -12,9 +12,7 @@
             "providers": [
                 "Modules\\Menu\\Providers\\MenuServiceProvider"
             ],
-            "aliases": {
-                
-            }
+            "aliases": {}
         }
     },
     "autoload": {

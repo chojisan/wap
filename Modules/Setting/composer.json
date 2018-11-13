@@ -1,10 +1,10 @@
 {
-    "name": "nwidart/setting",
+    "name": "takada/setting",
     "description": "",
     "authors": [
         {
-            "name": "Nicolas Widart",
-            "email": "n.widart@gmail.com"
+            "name": "Choji Takada",
+            "email": "choji.takada@gmail.com"
         }
     ],
     "extra": {
@@ -12,9 +12,7 @@
             "providers": [
                 "Modules\\Setting\\Providers\\SettingServiceProvider"
             ],
-            "aliases": {
-                
-            }
+            "aliases": {}
         }
     },
     "autoload": {
