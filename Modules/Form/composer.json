@@ -1,0 +1,25 @@
+{
+    "name": "takada/form",
+    "description": "",
+    "authors": [
+        {
+            "name": "Choji Takada",
+            "email": "choji.takada@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Form\\Providers\\FormServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Form\\": ""
+        }
+    }
+}
