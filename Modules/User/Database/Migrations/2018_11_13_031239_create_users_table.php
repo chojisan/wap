@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('extension', 50)->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->text('permissions');
+            $table->text('permissions')->nullable();
             $table->timestamp('last_login')->nullable();
             $table->integer('address_id')->nullable();
             $table->date('birthdate');
