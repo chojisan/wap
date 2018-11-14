@@ -2,18 +2,13 @@
 
 namespace Modules\User\Entities\Sentinel;
 
-//use Illuminate\Database\Eloquent\Model;
-use Cartalyst\Sentinel\Laravel\Facades\Activation;
+use Illuminate\Notifications\Notifiable;
 use Cartalyst\Sentinel\Users\EloquentUser;
-use Illuminate\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-//use Laracasts\Presenter\PresentableTrait;
-use Modules\User\Entities\UserInterface;
-use Modules\User\Entities\UserToken;
-//use Modules\User\Presenters\UserPresenter;
 
 class User extends EloquentUser
 {
+    use Notifiable;
+    
     protected $table = 'users';
 
     protected $fillable = [

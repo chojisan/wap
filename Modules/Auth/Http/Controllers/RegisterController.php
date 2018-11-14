@@ -35,6 +35,7 @@ class RegisterController extends Controller
 
         $role->users()->attach($user);
 
+        // send email
         //$this->sendMail($user, $activation->code);
 
         return redirect('/backend');
@@ -44,9 +45,7 @@ class RegisterController extends Controller
     {
         $user = User::whereEmail($email)->first();
 
-        $sentinelUser = Sentinel::findById($user->id);
-
-        if (Activation::complete($sentinelUser, $code))
+        if (Activation::complete($user, $code))
         {
             return redirect('/auth/login');
         }

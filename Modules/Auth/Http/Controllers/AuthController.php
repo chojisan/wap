@@ -8,6 +8,7 @@ use Modules\User\Entities\Sentinel\User;
 use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
 use Validator;
+use Mail;
 use Template;
 use Sentinel;
 use Reminder;
@@ -26,6 +27,13 @@ class AuthController extends Controller
     public function authenticate(Request $request)
     {
         try {
+            $rememberMe = false;
+
+            if (isset($request->remember_me))
+            {
+                $rememberMe = true;
+            }
+
             $this->validate($request, [
                 'email' => 'required|email',
                 'password' => 'required'
@@ -33,7 +41,7 @@ class AuthController extends Controller
     
             $credentials = $request->only('email', 'password');
             
-            if (Sentinel::authenticate($request->all())) {
+            if (Sentinel::authenticate($request->all(), $rememberMe)) {
                 // Authentication passed...
                 return redirect('/backend');
             }
@@ -69,8 +77,7 @@ class AuthController extends Controller
 
         if (count($user) > 0)
         {
-            $sentinelUser = Sentinel::findById($user->id);
-            $reminder = Reminder::exists($sentinelUser) ?: Reminder::create($sentinelUser);
+            $reminder = Reminder::exists($user) ?: Reminder::create($user);
             //$this->sendEmail($user, $reminder->code);
             return back()->with("success", "Email successfully reset. Please check your email for reset code.");
         }
@@ -99,9 +106,7 @@ class AuthController extends Controller
             abort(404);
         }
 
-        $sentinelUser = Sentinel::findById($user->id);
-
-        if ($reminder = Reminder::exists($sentinelUser))
+        if ($reminder = Reminder::exists($user))
         {
             if ($code == $reminder->code)
             {
@@ -134,13 +139,11 @@ class AuthController extends Controller
             abort(404);
         }
 
-        $sentinelUser = Sentinel::findById($user->id);
-
-        if ($reminder = Reminder::exists($sentinelUser))
+        if ($reminder = Reminder::exists($user))
         {
             if ($code == $reminder->code)
             {
-                Reminder::complete($sentinelUser, $code, $request->password);
+                Reminder::complete($user, $code, $request->password);
 
                 return redirect('/auth/login')->with('success', 'Please login with your new password.');
             }
