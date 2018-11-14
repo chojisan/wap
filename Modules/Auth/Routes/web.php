@@ -15,10 +15,15 @@
 // /auth/logout
 
 Route::prefix('auth')->group(function() {
+
     Route::get('/login', 'AuthController@login');
     Route::post('/login', 'AuthController@authenticate');
     Route::get('/logout', 'AuthController@logout');
+    
+    // Route::get('/reset', 'AuthController@reset');
+    // activate
 
     Route::get('/register', 'RegisterController@register');
-    Route::post('/register', 'RegisterController@postRegister');   
+    Route::post('/register', 'RegisterController@postRegister');
+
 });

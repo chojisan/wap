@@ -3,8 +3,8 @@
 namespace Modules\Auth\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 use Modules\User\Entities\User;
 
@@ -38,8 +38,9 @@ class RegisterController extends Controller
             'password' => bcrypt($request['password'])
         ]);
 
-        auth()->login($user);
+        // login user after registration
+        Auth::login($user);
 
-        return redirect()->route('backend');
+        return redirect('/backend');
     }
 }

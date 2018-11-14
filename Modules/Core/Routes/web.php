@@ -15,6 +15,6 @@ Route::get('backend', function () {
 	return 'backend';
 })->name('backend');
 
-Route::prefix('core')->group(function() {
+Route::prefix('backend')->group(function() {
     Route::get('/', 'CoreController@index');
 });

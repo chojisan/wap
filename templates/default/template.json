@@ -1,0 +1,11 @@
+{
+	"slug": "default",
+    "name": "Default Bootstrap Admin Template",
+    "type": "backend",
+    "author": "Choji Takada",
+    "email": "chojitakada@gmail.com",
+    "description": "This is an example theme.",
+    "web": "www.example.com",
+    "license": "MIT",
+    "version": "1.0"
+}

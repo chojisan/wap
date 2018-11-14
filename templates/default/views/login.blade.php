@@ -1,23 +1,15 @@
-@extends('layouts.bootstrap')
-
-@section('content')
-@if ($message = Session::get('error'))
-	<div class="alert alert-danger alert-block">
-		<button type="button" class="close" data-dismiss="alert">x</button>
-		<strong>{{ $message }}</strong>
-	</div>
-@endif
-
+/*
 @if (count($errors) > 0)
-  <div class="alert aler-danger">
+  <div class="alert alert-danger">
     <ul>
-    	@foreach($errors->all() as $error)
-        	<li>{{ $error }}</li>
-      	@endforeach
+      @foreach($error->all() as $error)
+        <li>{{ $error }}</li>
+      @endforeach
     </ul>
   </div>
 @endif
-<form class="form-signin" method="POST" action="{{ url('/auth/login') }}">
+*/
+<form class="form-signin" method="POST" action="">
   {{ csrf_field()}}
   <img class="mb-4" src="{{ asset('bootstrap/assets/brand/bootstrap-solid.svg') }}" alt="" width="72" height="72">
   <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
@@ -33,4 +25,3 @@
   <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
   <p class="mt-5 mb-3 text-muted">&copy; 2018. Takada Industries, Inc.</p>
 </form>
-@stop

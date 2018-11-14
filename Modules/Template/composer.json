@@ -13,7 +13,7 @@
                 "Modules\\Template\\Providers\\TemplateServiceProvider"
             ],
             "aliases": {
-                
+                "Template": "Modules\\Template\\Facades\\Template"
             }
         }
     },

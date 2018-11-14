@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Validator;
+use Template;
 
 class AuthController extends Controller
 {
@@ -29,7 +30,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             // Authentication passed...
-            return redirect('/');
+            return redirect('/backend');
         }
         else
         {
@@ -42,6 +43,6 @@ class AuthController extends Controller
     {
         Auth::logout();
 
-        return redirect('form');
+        return redirect('/');
     }
 }
