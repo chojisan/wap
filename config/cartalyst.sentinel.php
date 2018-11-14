@@ -52,8 +52,8 @@ return [
     */
 
     'users' => [
-
-        'model' => 'Cartalyst\Sentinel\Users\EloquentUser',
+        // Cartalyst\Sentinel\Users\EloquentUser
+        'model' => \Modules\User\Entities\Sentinel\User::class,
 
     ],
 

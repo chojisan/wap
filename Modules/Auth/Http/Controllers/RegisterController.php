@@ -5,8 +5,8 @@ namespace Modules\Auth\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-
 use Modules\User\Entities\User;
+use Sentinel;
 
 class RegisterController extends Controller
 {
@@ -21,6 +21,7 @@ class RegisterController extends Controller
 
     public function postRegister(Request $request)
     {
+        /*
         $this->validate(request(), [
             'username' => 'required|unique:users',
             'first_name' => 'required',
@@ -41,6 +42,10 @@ class RegisterController extends Controller
         // login user after registration
         Auth::login($user);
 
+        return redirect('/backend');
+        */
+        $user = Sentinel::registerAndActivate($request->all());
+        
         return redirect('/backend');
     }
 }
