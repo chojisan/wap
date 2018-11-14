@@ -4,9 +4,10 @@ namespace Modules\Auth\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
-use Modules\User\Entities\User;
+//use Illuminate\Support\Facades\Auth;
+use Modules\User\Entities\Sentinel\User;
 use Sentinel;
+use Activation;
 
 class RegisterController extends Controller
 {
@@ -21,31 +22,51 @@ class RegisterController extends Controller
 
     public function postRegister(Request $request)
     {
-        /*
         $this->validate(request(), [
             'username' => 'required|unique:users',
-            'first_name' => 'required',
-            'last_name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required|confirmed'
         ]);
 
-        $user = User::create([
-            'username' => $request['username'],
-            'first_name' => $request['first_name'], 
-            'middle_name' => $request['middle_name'], 
-            'last_name' => $request['last_name'], 
-            'email' => $request['email'], 
-            'password' => bcrypt($request['password'])
-        ]);
+        $user = Sentinel::register($request->all());
 
-        // login user after registration
-        Auth::login($user);
+        $activation = Activation::create($user);
+
+        $role = Sentinel::findRoleBySlug('user');
+
+        $role->users()->attach($user);
+
+        //$this->sendMail($user, $activation->code);
 
         return redirect('/backend');
-        */
-        $user = Sentinel::registerAndActivate($request->all());
-        
-        return redirect('/backend');
+    }
+
+    public function activate($email, $code)
+    {
+        $user = User::whereEmail($email)->first();
+
+        $sentinelUser = Sentinel::findById($user->id);
+
+        if (Activation::complete($sentinelUser, $code))
+        {
+            return redirect('/auth/login');
+        }
+        else
+        {
+
+        }
+    }
+
+    private function sendEmail($user, $code)
+    {
+        Mail::send('auth::activation', [
+            'user' => $user,
+            'code' => $code
+        ], function($message) use ($user) {
+            $message->to($email);
+            $message->subject("Account activation");
+
+
+        });
     }
 }

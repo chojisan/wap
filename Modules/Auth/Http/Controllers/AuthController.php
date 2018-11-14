@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Validator;
 use Template;
+use Sentinel;
 
 class AuthController extends Controller
 {
@@ -27,8 +28,9 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
-
-        if (Auth::attempt($credentials)) {
+        
+        // Auth::attempt($credentials)
+        if (Sentinel::authenticate($request->all())) {
             // Authentication passed...
             return redirect('/backend');
         }
@@ -41,8 +43,13 @@ class AuthController extends Controller
 
     public function logout()
     {
-        Auth::logout();
+        Sentinel::logout();
 
         return redirect('/');
+    }
+
+    public function reset()
+    {
+        
     }
 }

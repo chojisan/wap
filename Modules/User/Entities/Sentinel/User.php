@@ -2,6 +2,7 @@
 
 namespace Modules\User\Entities\Sentinel;
 
+//use Illuminate\Database\Eloquent\Model;
 use Cartalyst\Sentinel\Laravel\Facades\Activation;
 use Cartalyst\Sentinel\Users\EloquentUser;
 use Illuminate\Auth\Authenticatable;
