@@ -4,6 +4,8 @@ namespace Modules\Auth\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Auth\Http\Middleware\LoggedInMiddleware;
+use Illuminate\Routing\Router;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -14,6 +16,10 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $defer = false;
 
+    protected $middleware = [
+        'logged.in' => LoggedInMiddleware::class,
+    ];
+
     /**
      * Boot the application events.
      *
@@ -21,11 +27,13 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         $this->registerTranslations();
         $this->registerConfig();
         $this->registerViews();
         $this->registerFactories();
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+        $this->registerMiddleware();
     }
 
     /**
@@ -71,6 +79,13 @@ class AuthServiceProvider extends ServiceProvider
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
             return $path . '/modules/auth';
         }, \Config::get('view.paths')), [$sourcePath]), 'auth');
+    }
+
+    private function registerMiddleware()
+    {
+        foreach ($this->middleware as $name => $class) {
+            $this->app['router']->aliasMiddleware($name, $class);
+        }
     }
 
     /**

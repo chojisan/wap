@@ -4,21 +4,25 @@ namespace Modules\Auth\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Modules\User\Entities\Sentinel\User;
+use Modules\User\Entities\User;
 use Sentinel;
 use Activation;
 
 class RegisterController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     * @return Response
+     * Display registration form.
+     * @return 
      */
     public function register()
     {
         return view('auth::register');
     }
 
+    /**
+     * Post registration
+     * @return 
+     */
     public function postRegister(Request $request)
     {
         $this->validate(request(), [
@@ -41,9 +45,16 @@ class RegisterController extends Controller
         return redirect('/backend');
     }
 
+    /**
+     * Activate registration
+     * @return 
+     */
     public function activate($email, $code)
     {
         $user = User::whereEmail($email)->first();
+
+        if (count($user) == 0)
+            abort(404);
 
         if (Activation::complete($user, $code))
         {
@@ -51,10 +62,14 @@ class RegisterController extends Controller
         }
         else
         {
-
+            abort(404);
         }
     }
 
+    /**
+     * Send activation email
+     * @return 
+     */
     private function sendEmail($user, $code)
     {
         Mail::send('auth::activation-email', [

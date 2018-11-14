@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\User\Entities\Sentinel;
+namespace Modules\User\Entities;
 
 use Illuminate\Notifications\Notifiable;
 use Cartalyst\Sentinel\Users\EloquentUser;

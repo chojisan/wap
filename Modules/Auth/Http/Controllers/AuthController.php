@@ -4,7 +4,7 @@ namespace Modules\Auth\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use Modules\User\Entities\Sentinel\User;
+use Modules\User\Entities\User;
 use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
 use Validator;
@@ -16,14 +16,18 @@ use Reminder;
 class AuthController extends Controller
 {
     /**
-     * Display a listing of the resource.
-     * @return Response
+     * Display login form
+     * @return 
      */
     public function login()
     {
         return view('auth::login');
     }
 
+    /**
+     * Authenticate login form
+     * @return 
+     */
     public function authenticate(Request $request)
     {
         try {
@@ -58,19 +62,30 @@ class AuthController extends Controller
 
     }
 
+    /**
+     * Logout
+     * @return 
+     */
     public function logout()
     {
-        Auth::logout();
         Sentinel::logout();
 
         return redirect('/');
     }
 
+    /**
+     * Display forgot password form
+     * @return 
+     */
     public function forgotPassword()
     {
         return view('auth::forgot-password');
     }
 
+    /**
+     * Post forgot password
+     * @return 
+     */
     public function postForgotPassword(Request $request)
     {
         $user = User::whereEmail($request->email)->first();  
@@ -78,6 +93,7 @@ class AuthController extends Controller
         if (count($user) > 0)
         {
             $reminder = Reminder::exists($user) ?: Reminder::create($user);
+            // send email
             //$this->sendEmail($user, $reminder->code);
             return back()->with("success", "Email successfully reset. Please check your email for reset code.");
         }
@@ -86,6 +102,10 @@ class AuthController extends Controller
         }
     }
 
+    /**
+     * Send forgot password email.
+     * @return 
+     */
     private function sendEmail($user, $code)
     {
         Mail::send('auth::reset-password-email', [
@@ -97,6 +117,10 @@ class AuthController extends Controller
         });
     }
 
+    /**
+     * Authenticate and Display reset password form
+     * @return 
+     */
     public function reset($email, $code)
     {
         $user = User::whereEmail($email)->first();
@@ -125,6 +149,10 @@ class AuthController extends Controller
         
     }
 
+    /**
+     * Post reset password
+     * @return 
+     */
     public function postResetPassword(Request $request, $email, $code)
     {
         $this->validate(request(), [
@@ -135,9 +163,7 @@ class AuthController extends Controller
         $user = User::whereEmail($email)->first();
 
         if (count($user) == 0)
-        {
             abort(404);
-        }
 
         if ($reminder = Reminder::exists($user))
         {

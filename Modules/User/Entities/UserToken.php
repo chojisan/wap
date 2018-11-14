@@ -3,7 +3,7 @@
 namespace Modules\User\Entities;
 
 use Illuminate\Database\Eloquent\Model;
-use Modules\User\Entities\Sentinel\User;
+use Modules\User\Entities\User;
 
 class UserToken extends Model
 {
