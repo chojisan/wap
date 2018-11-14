@@ -19,7 +19,11 @@ Route::prefix('auth')->group(function() {
     Route::get('/login', 'AuthController@login');
     Route::post('/login', 'AuthController@authenticate');
     Route::get('/logout', 'AuthController@logout');
-    Route::get('/reset', 'AuthController@reset');
+
+    Route::get('/forgot-password', 'AuthController@forgotPassword');
+    Route::post('/forgot-password', 'AuthController@postForgotPassword');
+    Route::get('/reset/{email}/{code}', 'AuthController@reset');
+    Route::post('/reset/{email}/{code}', 'AuthController@postResetPassword');
 
     Route::get('/register', 'RegisterController@register');
     Route::post('/register', 'RegisterController@postRegister');

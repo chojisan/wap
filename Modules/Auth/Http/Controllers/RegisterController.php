@@ -4,7 +4,6 @@ namespace Modules\Auth\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-//use Illuminate\Support\Facades\Auth;
 use Modules\User\Entities\Sentinel\User;
 use Sentinel;
 use Activation;
@@ -25,7 +24,7 @@ class RegisterController extends Controller
         $this->validate(request(), [
             'username' => 'required|unique:users',
             'email' => 'required|email|unique:users',
-            'password' => 'required|confirmed'
+            'password' => 'required|confirmed',
         ]);
 
         $user = Sentinel::register($request->all());
@@ -59,14 +58,12 @@ class RegisterController extends Controller
 
     private function sendEmail($user, $code)
     {
-        Mail::send('auth::activation', [
+        Mail::send('auth::activation-email', [
             'user' => $user,
             'code' => $code
         ], function($message) use ($user) {
             $message->to($email);
             $message->subject("Account activation");
-
-
         });
     }
 }
