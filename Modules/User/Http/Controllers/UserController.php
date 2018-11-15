@@ -6,10 +6,11 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\User\Entities\User;
+use Validate;
 
 class UserController extends Controller
 {
-    private $menus;
+    private $user;
 
     /**
      * Display a listing of the resource.
@@ -37,24 +38,35 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'username' => 'required|unique:users',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed',
+        ]);
+
+        User::create($request->all());
+
+        return redirect()->route('user.index')->with('success','User created successfully.');
     }
 
     /**
      * Show the specified resource.
      * @return Response
      */
-    public function show()
+    public function show(User $user)
     {
-        return view('user::show');
+        return view('user::show',compact('user'));
     }
 
     /**
      * Show the form for editing the specified resource.
      * @return Response
      */
-    public function edit()
+    public function edit(User $user)
     {
-        return view('user::edit');
+        return view('user::edit', compact('user'));
     }
 
     /**
@@ -62,15 +74,31 @@ class UserController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function update(Request $request)
+    public function update(Request $request, User $user)
     {
+        $request->validate([
+            'username' => 'required|unique:users',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|confirmed',
+        ]);
+  
+        $user->update($request->all());
+  
+        return redirect()->route('user.index')
+                        ->with('success','User updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      * @return Response
      */
-    public function destroy()
+    public function destroy(User $user)
     {
+        $user->delete();
+
+        return redirect()->route('user.index')
+                        ->with('success','User deleted successfully');
     }
 }

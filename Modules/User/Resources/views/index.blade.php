@@ -4,11 +4,16 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+            @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                    <p>{{ $message }}</p>
+                </div>
+            @endif
             <div class="panel panel-default">
                         <div class="panel-heading">
                             DataTables Advanced Tables
                         </div>
-                        <button type="button" class="btn btn-primary">Add User</button>
+                        <a class="btn btn-success" href="{{ route('user.create') }}"> Create New User</a>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <table width="100%" class="table table-striped table-bordered table-hover" id="default-dataTables">
@@ -23,6 +28,7 @@
                                         <th>Birthdate</th>
                                         <th></th>
                                         <th></th>
+                                        <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -35,8 +41,14 @@
                                         <td>{{ $user->extension }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->birthdate }}</td>
-                                        <th><a href="#{{ $user->id }}"><i class="fa fa-edit"></i></a></th>
-                                        <th><a href="#{{ $user->id }}"><i class="fa fa-trash"></i></a></th>
+                                        <th><a href="{{ route('user.show',$user->id) }}">Show</a></th>
+                                        <th><a href="{{ route('user.edit',$user->id) }}"><i class="fa fa-edit"></i></a></th>
+                                        <th>
+                                            <form action="{{ route('user.destroy',$user->id) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        </th>
                                     </tr> 
                                 @endforeach
                                 </tbody>

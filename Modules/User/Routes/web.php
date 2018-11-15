@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+/*
 Route::prefix('backend/user')->group(function() {
     Route::get('/', 'UserController@index');
     Route::get('/create', 'UserController@create');
@@ -19,3 +19,6 @@ Route::prefix('backend/user')->group(function() {
     Route::put('/{user}', 'UserController@update');
     Route::delete('/{user}', 'UserController@delete');
 });
+*/
+
+Route::resource('backend/user','UserController');
