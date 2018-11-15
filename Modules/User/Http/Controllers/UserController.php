@@ -46,7 +46,13 @@ class UserController extends Controller
             'password' => 'required|confirmed',
         ]);
 
-        User::create($request->all());
+        $user = Sentinel::register($request->all());
+
+        $activation = Activation::create($user);
+
+        $role = Sentinel::findRoleBySlug('user');
+
+        $role->users()->attach($user);
 
         return redirect()->route('user.index')->with('success','User created successfully.');
     }
