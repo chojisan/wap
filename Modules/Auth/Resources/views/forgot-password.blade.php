@@ -35,7 +35,6 @@
 						<input type="email" id="email" name="email" class="form-control" placeholder="Email address" required autofocus>
 					</div>
 				</div>
-
 				<button class="btn btn-primary" type="submit">Reset</button>
 				<p class="mt-5 mb-3 text-muted">&copy; 2018. Takada Industries, Inc.</p>
 			</form>

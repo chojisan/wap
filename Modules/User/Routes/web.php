@@ -11,6 +11,11 @@
 |
 */
 
-Route::prefix('user')->group(function() {
+Route::prefix('backend/user')->group(function() {
     Route::get('/', 'UserController@index');
+    Route::get('/create', 'UserController@create');
+    Route::post('/', 'UserController@store');
+    Route::get('/{user}/edit', 'UserController@edit');
+    Route::put('/{user}', 'UserController@update');
+    Route::delete('/{user}', 'UserController@delete');
 });

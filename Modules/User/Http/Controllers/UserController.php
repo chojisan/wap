@@ -5,16 +5,20 @@ namespace Modules\User\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\User\Entities\User;
 
 class UserController extends Controller
 {
+    private $menus;
+
     /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        return view('user::index');
+        $users = User::all();
+        return view('user::index', compact('users'));
     }
 
     /**
