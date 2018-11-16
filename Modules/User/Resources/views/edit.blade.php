@@ -14,13 +14,6 @@
     </div>
     <div class="row">
       <div class="col-12">
-        @if ($message = Session::get('error'))
-          <div class="alert alert-danger alert-block">
-            <button type="button" class="close" data-dismiss="alert">x</button>
-            <strong>{{ $message }}</strong>
-          </div>
-        @endif
-
         @if ($errors->any())
           <div class="alert aler-danger">
             <ul>
@@ -86,9 +79,7 @@
               <input type="password" class="form-control" name="password_confirmation" value="{{ $user->password }}" placeholder="Password" required>
             </div>
           </div>
-
-          <button type="submit" class="btn btn-primary">Register</button>
-
+          <button type="submit" class="btn btn-primary">Save</button>
         </form>
       </div>
     </div>

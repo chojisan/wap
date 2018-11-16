@@ -17,6 +17,7 @@ class CreateMenusTable extends Migration
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('title', 100);
+            $table->string('type', 100); // backend, site
             $table->text('description');
             $table->text('parameters')->nullable();
             $table->timestamps();

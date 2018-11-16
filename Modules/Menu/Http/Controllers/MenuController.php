@@ -5,6 +5,8 @@ namespace Modules\Menu\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
+use Modules\Menu\Entities\Menu;
+use Modules\Menu\Entities\MenuItem;
 
 class MenuController extends Controller
 {
@@ -14,7 +16,8 @@ class MenuController extends Controller
      */
     public function index()
     {
-        return view('menu::index');
+        $menus = Menu::all();
+        return view('menu::index', compact('menus'));
     }
 
     /**
@@ -33,6 +36,14 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'type' => 'required'
+        ]);
+
+        Menu::create($request->all());
+
+        return redirect()->route('menu.index')->with('success','Menu created successfully.');
     }
 
     /**

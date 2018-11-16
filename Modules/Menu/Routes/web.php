@@ -11,10 +11,4 @@
 |
 */
 
-
-Route::prefix('backend/menu')->group(function() {
-    Route::get('/', 'MenuController@index');
-});
-
-
-//Route::resource('backend/menu','MenuController');
+Route::resource('backend/menu','MenuController');

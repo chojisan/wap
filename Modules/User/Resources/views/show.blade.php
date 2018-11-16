@@ -5,7 +5,7 @@
     <div class="row">
       <div class="col-12">
         <div class="pull-left">
-          <h2>View User</h2>
+          <h2>User Profile</h2>
         </div>
         <div class="pull-right">
           <a class="btn btn-primary" href="{{ route('user.index') }}"> Back</a>
@@ -14,29 +14,6 @@
     </div>
     <div class="row">
       <div class="col-12">
-        @if ($message = Session::get('error'))
-          <div class="alert alert-danger alert-block">
-            <button type="button" class="close" data-dismiss="alert">x</button>
-            <strong>{{ $message }}</strong>
-          </div>
-        @endif
-
-        @if ($message = Session::get('success'))
-          <div class="alert alert-success alert-block">
-            <button type="button" class="close" data-dismiss="alert">x</button>
-            <strong>{{ $message }}</strong>
-          </div>
-        @endif
-
-        @if ($errors->any())
-          <div class="alert aler-danger">
-            <ul>
-              @foreach($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-          </div>
-        @endif
         <form method="POST" action="{{ route('user.update', $user->id) }}">
           <div class="form-group row">
             <label for="username" class="col-sm-2 col-form-label">Username</label>

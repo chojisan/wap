@@ -14,12 +14,6 @@
     </div>
     <div class="row">
       <div class="col-12">
-        @if ($message = Session::get('success'))
-          <div class="alert alert-success">
-            <p>{{ $message }}</p>
-          </div>
-        @endif
-
         @if ($errors->any())
           <div class="alert aler-danger">
             <ul>
@@ -88,10 +82,8 @@
               <label class="form-check-label" for="status2">Inactive</label>
             </div>
           </div>
-          
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" class="btn btn-primary">Save</button>
         </form>
-
       </div>
     </div>
   </div>

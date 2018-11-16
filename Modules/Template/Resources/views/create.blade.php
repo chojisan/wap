@@ -4,12 +4,6 @@
   <div class="container">
     <div class="row">
       <div class="col-12">
-        @if ($message = Session::get('success'))
-          <div class="alert alert-success">
-            <p>{{ $message }}</p>
-          </div>
-        @endif
-
         @if ($errors->any())
           <div class="alert aler-danger">
             <ul>
@@ -45,7 +39,6 @@
               <label class="form-check-label" for="default2">No</label>
             </div>
           </div>
-
           <div class="form-group row">
             <label for="type" class="col-sm-2 col-form-label">Template Type</label>
             <div class="form-check form-check-inline">
@@ -57,7 +50,6 @@
               <label class="form-check-label" for="type2">Frontend</label>
             </div>
           </div>
-
           <div class="form-group row">
             <label for="parameters" class="col-sm-2 col-form-label">Parameters</label>
             <div class="col-sm-10">
@@ -78,7 +70,7 @@
             </div>
           </div>
           
-          <button type="submit" class="btn btn-primary">Register</button>
+          <button type="submit" class="btn btn-primary">Save</button>
         </form>
 
       </div>
