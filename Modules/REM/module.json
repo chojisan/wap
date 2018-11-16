@@ -1,0 +1,14 @@
+{
+    "name": "REM",
+    "alias": "rem",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\REM\\Providers\\REMServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

@@ -1,0 +1,25 @@
+{
+    "name": "takada/rem",
+    "description": "",
+    "authors": [
+        {
+            "name": "Choji Takada",
+            "email": "choji.takada@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\REM\\Providers\\REMServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\REM\\": ""
+        }
+    }
+}
