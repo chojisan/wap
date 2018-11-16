@@ -16,7 +16,10 @@ class CreateTemplatesTable extends Migration
         Schema::create('templates', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
+            $table->string('template_code');
             $table->string('title');
+            $table->integer('default'); //1,0 true/false
+            $table->string('type'); //fronend, bakcend
             $table->text('parameters')->nullable();
             $table->string('status');
             $table->timestamps();

@@ -11,6 +11,4 @@
 |
 */
 
-Route::prefix('template')->group(function() {
-    Route::get('/', 'TemplateController@index');
-});
+Route::resource('backend/template','TemplateController');
