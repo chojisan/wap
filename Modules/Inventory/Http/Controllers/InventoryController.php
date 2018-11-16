@@ -1,25 +1,20 @@
 <?php
 
-namespace Modules\Core\Http\Controllers;
+namespace Modules\Inventory\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 
-class CoreController extends Controller
+class InventoryController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('logged.in');
-    }
     /**
      * Display a listing of the resource.
      * @return Response
      */
     public function index()
     {
-        //dd(config('duyog'));
-        return view('core::index');
+        return view('inventory::index');
     }
 
     /**
@@ -28,7 +23,7 @@ class CoreController extends Controller
      */
     public function create()
     {
-        return view('core::create');
+        return view('inventory::create');
     }
 
     /**
@@ -46,7 +41,7 @@ class CoreController extends Controller
      */
     public function show()
     {
-        return view('core::show');
+        return view('inventory::show');
     }
 
     /**
@@ -55,7 +50,7 @@ class CoreController extends Controller
      */
     public function edit()
     {
-        return view('core::edit');
+        return view('inventory::edit');
     }
 
     /**

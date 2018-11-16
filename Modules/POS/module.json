@@ -1,0 +1,14 @@
+{
+    "name": "POS",
+    "alias": "pos",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Modules\\POS\\Providers\\POSServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

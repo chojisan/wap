@@ -191,7 +191,7 @@ class Template implements TemplateContract
 
         $this->breadcrumb = $breadcrumb;
 
-        $this->template($this->getConfig('template_admin_default'));
+        $this->template($this->getConfig('template-backend'));
 
         $this->layout($this->getConfig('layoutDefault'));
 

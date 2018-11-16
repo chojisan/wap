@@ -1,0 +1,25 @@
+{
+    "name": "takada/pos",
+    "description": "",
+    "authors": [
+        {
+            "name": "Choji Takada",
+            "email": "choji.takada@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\POS\\Providers\\POSServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\POS\\": ""
+        }
+    }
+}

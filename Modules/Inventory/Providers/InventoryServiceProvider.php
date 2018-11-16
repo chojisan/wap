@@ -1,12 +1,11 @@
 <?php
 
-namespace Modules\Template\Providers;
+namespace Modules\Inventory\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use View;
 
-class TemplateServiceProvider extends ServiceProvider
+class InventoryServiceProvider extends ServiceProvider
 {
     /**
      * Indicates if loading of the provider is deferred.
@@ -37,10 +36,6 @@ class TemplateServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
-
-        //View::addLocation('/template/default/view');
-        //View::addNamespace('Template','/template/default/view');
-        //dd($this->app['config']);
     }
 
     /**
@@ -51,10 +46,10 @@ class TemplateServiceProvider extends ServiceProvider
     protected function registerConfig()
     {
         $this->publishes([
-            __DIR__.'/../Config/config.php' => config_path('template.php'),
+            __DIR__.'/../Config/config.php' => config_path('inventory.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            __DIR__.'/../Config/config.php', 'template'
+            __DIR__.'/../Config/config.php', 'inventory'
         );
     }
 
@@ -65,7 +60,7 @@ class TemplateServiceProvider extends ServiceProvider
      */
     public function registerViews()
     {
-        $viewPath = resource_path('views/modules/template');
+        $viewPath = resource_path('views/modules/inventory');
 
         $sourcePath = __DIR__.'/../Resources/views';
 
@@ -74,8 +69,8 @@ class TemplateServiceProvider extends ServiceProvider
         ],'views');
 
         $this->loadViewsFrom(array_merge(array_map(function ($path) {
-            return $path . '/modules/template';
-        }, \Config::get('view.paths')), [$sourcePath]), 'template');
+            return $path . '/modules/inventory';
+        }, \Config::get('view.paths')), [$sourcePath]), 'inventory');
     }
 
     /**
@@ -85,12 +80,12 @@ class TemplateServiceProvider extends ServiceProvider
      */
     public function registerTranslations()
     {
-        $langPath = resource_path('lang/modules/template');
+        $langPath = resource_path('lang/modules/inventory');
 
         if (is_dir($langPath)) {
-            $this->loadTranslationsFrom($langPath, 'template');
+            $this->loadTranslationsFrom($langPath, 'inventory');
         } else {
-            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'template');
+            $this->loadTranslationsFrom(__DIR__ .'/../Resources/lang', 'inventory');
         }
     }
 

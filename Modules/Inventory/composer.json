@@ -1,0 +1,25 @@
+{
+    "name": "takada/inventory",
+    "description": "",
+    "authors": [
+        {
+            "name": "Choji Takada",
+            "email": "choji.takada@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Inventory\\Providers\\InventoryServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Inventory\\": ""
+        }
+    }
+}
