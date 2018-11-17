@@ -22,6 +22,12 @@
               <li class="nav-item">
                 <a class="nav-link" href="#">
                   <span data-feather="file"></span>
+                  Template Manager
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
                   User Accounts
                 </a>
                 <ul class="menu">
