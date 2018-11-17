@@ -14,13 +14,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('menu.index') }}">
                   <span data-feather="file"></span>
                   Menu Manager
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="{{ route('template.index') }}">
                   <span data-feather="file"></span>
                   Template Manager
                 </a>
@@ -32,7 +32,7 @@
                 </a>
                 <ul class="menu">
                     <li class="nav-item">
-                      <a href="#" class="nav-link">Users List</a>
+                      <a href="{{ route('user.index') }}" class="nav-link">Users List</a>
                     </li>
                     <li class="nav-item">
                       <a href="#" class="nav-link">Roles</a>

@@ -16,6 +16,7 @@
 
         <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('switchery/css/switchery.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('feather/css/feather.css') }}" rel="stylesheet" type="text/css">
 
         <!-- Custom styles for this template -->
         
@@ -40,5 +41,9 @@
         <script src="{{ asset('jquery/js/jquery.min.js') }}"></script>
         <script src="{{ asset('bootstrap/assets/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('switchery/js/switchery.min.js') }}"></script>
+
+        <script src="{{ asset('js/script.js') }}"></script>
+
+
     </body>
 </html>

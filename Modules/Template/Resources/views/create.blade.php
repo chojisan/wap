@@ -33,8 +33,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- /.panel-heading -->
             <div class="page-body">
                 <div class="row">
                     <div class="col-sm-12">
