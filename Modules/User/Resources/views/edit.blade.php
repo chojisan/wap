@@ -17,7 +17,7 @@
                         <div class="page-header-breadcrumb">
                             <ul class="breadcrumb-title">
                                 <li class="breadcrumb-item">
-                                    <a href="index.html"> <i class="fa fa-home"></i> </a>
+                                    <a href="index.html"> <i class="feather icon-home"></i> </a>
                                 </li>
                                 <li class="breadcrumb-item">
                                     <a href="#!">Users</a>
@@ -40,8 +40,7 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-header">
-                                <h5>Basic Form Inputs</h5>
-                                <span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>
+                                <h5>Edit Account</h5>
                                 @if ($errors->any())
                                 <div class="alert aler-danger">
                                     <ul>

@@ -1,5 +1,5 @@
 <nav class="navbar header-navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
-    <div class="nav-logo col-sm-3 col-md-2 mr-0">
+    <div class="navbar-logo col-md-2">
         <a class="nav-brand" href="#">Company name</a>
     </div>
     
@@ -25,12 +25,12 @@
                 <div class="dropdown-primary dropdown">
                     <div class="dropdown-toggle" data-toggle="dropdown">
                         <i class="feather icon-bell"></i>
-                        <span class="badge bg-c-pink">5</span>
+                        <span class="badge badge-info">5</span>
                     </div>
                     <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                         <li>
                             <h6>Notifications</h6>
-                            <label class="label label-danger">New</label>
+                            <label class="badge badge-danger">New</label>
                         </li>
                                     <li>
                                         <div class="media">
@@ -69,7 +69,7 @@
                             <div class="dropdown-primary dropdown">
                                 <div class="displayChatbox dropdown-toggle" data-toggle="dropdown">
                                     <i class="feather icon-message-square"></i>
-                                    <span class="badge bg-c-green">3</span>
+                                    <span class="badge badge-warning">3</span>
                                 </div>
                             </div>
                         </li>
