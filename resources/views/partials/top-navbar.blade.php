@@ -1,6 +1,14 @@
 <nav class="navbar header-navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
     <div class="navbar-logo col-md-2">
-        <a class="nav-brand" href="#">Company name</a>
+        <a class="mobile-menu" id="mobile-collapse" href="#!">
+            <i class="feather icon-menu"></i>
+        </a>
+        <a class="nav-brand" href="#">
+            <img src={{ asset('assets/images/takada.png')}} class="img-logo" alt="" />
+        </a>
+        <a class="mobile-options">
+            <i class="feather icon-more-horizontal"></i>
+        </a>
     </div>
     
     <div class="navbar-container container-fluid">

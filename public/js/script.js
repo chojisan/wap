@@ -29,6 +29,16 @@ $(document).ready(function() {
             $(".main-search").removeClass("open");
         }, 300);
     });
+
+    $(".mobile-options").on("click", function() {
+        $(".navbar-container .nav-right").slideToggle("slow");
+    });
+
+    $("#mobile-collapse i").addClass("icon-toggle-right");
+    $("#mobile-collapse").on("click", function() {
+        $("#mobile-collapse i").toggleClass("icon-toggle-right");
+        $("#mobile-collapse i").toggleClass("icon-toggle-left");
+    });
 });
 
 // toggle full screen

@@ -13,6 +13,49 @@ a:hover {
     text-decoration: none;
 }
 
+/* header logo */
+
+.img-logo {
+    height: 40px;
+}
+
+.header-navbar .navbar-logo a {
+    color: #fff;
+}
+
+.header-navbar .navbar-logo .mobile-options {
+    display: none;
+}
+
+.header-navbar .navbar-logo .mobile-menu {
+    position: absolute;
+    right: 5px;
+    top: calc(50% - 20px);
+    border-radius: 50%;
+    padding: 5px 9px;
+    font-size: 20px;
+}
+
+/* end header logo */
+
+/* login form */
+
+.login-block .auth-login {
+    margin: 20px auto 0 auto;
+    max-width: 450px;
+}
+
+.login-block .form-wrapper form {
+    border: none;
+    background-color: transparent;
+}
+
+.login-block .card .card-block .checkbox {
+    display: inline-block;
+}
+
+/* end login */
+
 /* start menu */
 /*
 .sidebar-sticky ul.nav li.nav-item > a.active:before,
