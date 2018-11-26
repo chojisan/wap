@@ -1,0 +1,140 @@
+.navbar-container {
+    background: #fff;
+}
+
+.header-navbar .navbar-logo {
+    position: relative;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    float: left;
+    height: 56px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 240px;
+    padding: 10px;
+}
+
+// header logo
+
+.img-logo {
+    height: 40px;
+}
+
+.header-navbar .navbar-logo a {
+    color: #fff;
+}
+
+.header-navbar .navbar-logo .mobile-options {
+    display: none;
+}
+
+.header-navbar .navbar-logo .mobile-menu {
+    position: absolute;
+    right: 5px;
+    top: calc(50% - 20px);
+    border-radius: 50%;
+    padding: 5px 9px;
+    font-size: 20px;
+}
+
+.header-navbar .navbar-container .nav-left,
+.header-navbar .navbar-container .nav-right {
+    float: left;
+    margin-bottom: 0;
+}
+
+.header-navbar .header-search {
+    line-height: 0.8;
+}
+
+.header-navbar .navbar-container .nav-right .user-profile img {
+    margin-right: 10px;
+    width: 30px;
+}
+
+.header-navbar .header-search .main-search .input-group .input-group-addon {
+    padding: 0.45rem 0.75rem 0.3rem 0;
+    background-color: transparent;
+    color: #353c4e;
+    border: none;
+    line-height: 1.25;
+    font-size: 1rem;
+    font-weight: 400;
+
+    white-space: nowrap;
+    vertical-align: middle;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.header-navbar .header-search .main-search .input-group .form-control {
+    height: 27.98px;
+}
+
+.header-navbar .navbar-container .nav-left li > a,
+.header-navbar .navbar-container .nav-right li > a {
+    font-size: 16px;
+    color: #404e67;
+}
+.header-navbar .navbar-container .nav-left a,
+.header-navbar .navbar-container .nav-right a {
+    padding: 0 0.6rem;
+}
+
+.img-radius {
+    border-radius: 50%;
+}
+
+/* top search bar */
+
+.header-navbar
+    .header-search
+    .main-search
+    .input-group
+    .input-group-addon.search-close {
+    padding: 0.3rem 0 0.3rem 0.75rem;
+    display: none;
+}
+
+.header-navbar .header-search .main-search {
+    padding: 13px 0;
+    display: block;
+}
+
+.header-navbar
+    .header-search
+    .main-search.open
+    .input-group
+    .input-group-addon.search-close {
+    display: block;
+}
+
+.header-navbar .header-search .main-search.open .input-group .form-control {
+    display: block;
+}
+
+.header-navbar .header-search .main-search .input-group .form-control {
+    padding: 0.3rem 0.75rem;
+    width: 0;
+    border: none;
+    color: #353c4e;
+    background-color: transparent;
+}
+
+.header-navbar .header-search .main-search.open .input-group {
+    background-color: #dcdcdc;
+}
+
+.header-navbar .header-search .main-search .input-group {
+    margin-bottom: 0;
+    background-color: transparent;
+    border-radius: 20px;
+}
+
+/* end search bar */

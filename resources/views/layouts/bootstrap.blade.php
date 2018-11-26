@@ -22,7 +22,7 @@
         
         <link href="{{ asset('bootstrap/dashboard.css') }}" rel="stylesheet">
         <!--<link href="{{ asset('bootstrap/signin.css') }}" rel="stylesheet">-->
-        <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
         
     </head>
 
@@ -42,7 +42,7 @@
         <script src="{{ asset('bootstrap/assets/js/bootstrap.bundle.min.js') }}"></script>
         <script src="{{ asset('switchery/js/switchery.min.js') }}"></script>
 
-        <script src="{{ asset('js/script.js') }}"></script>
+        <script src="{{ asset('assets/js/app.js') }}"></script>
 
 
     </body>
