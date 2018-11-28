@@ -25,7 +25,7 @@ class CreateMenuItemsTable extends Migration
             $table->integer('parent_id');
             $table->string('type', 50)->nullable();
             $table->integer('component_id')->nullable();
-            $table->string('icon', 20)->nullable();
+            $table->string('icon', 50)->nullable();
             $table->string('img')->nullable();
             $table->integer('lft')->nullable();
             $table->integer('rgt')->nullable();

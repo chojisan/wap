@@ -12,4 +12,14 @@ class Menu extends Model
         'description',
         'parameters'
     ];
+
+    public function allMenuItems()
+    {
+    	return $this->hasMany(MenuItem::class);
+    }
+
+    public function menuItems()
+    {
+    	return $this->allMenuItems();
+    }
 }

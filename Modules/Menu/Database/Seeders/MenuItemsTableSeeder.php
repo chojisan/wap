@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Menu\Entities\MenuItem;
 
-class MenuItemsTableSeederTableSeeder extends Seeder
+class MenuItemsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
      */
     public function run()
     {
-        MenuItem::create([
+        $menuItems = [
             [
                 'menu_id' => 1,
                 'title' => 'Dashboard',
@@ -24,13 +24,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                 'level' => 1,
                 'order' => 1,
                 'parent_id' => 1,
-                //'type' => '',
-                //'component_id' => '',
-                'icon' => 'feather icon-home',
-                //'img' => '',
-                //'lft' => '',
-                //'rgt' => '',
-                //'parameters' => '',
+                'icon' => 'feather icon-home'
             ],
             [
                 'menu_id' => 1,
@@ -40,13 +34,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                 'level' => 1,
                 'order' => 2,
                 'parent_id' => 1,
-                //'type' => '',
-                //'component_id' => '',
-                'icon' => 'feather icon-image',
-                //'img' => '',
-                //'lft' => '',
-                //'rgt' => '',
-                //'parameters' => '',
+                'icon' => 'feather icon-image'
             ],
             [
                 'menu_id' => 1,
@@ -56,13 +44,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                 'level' => 1,
                 'order' => 3,
                 'parent_id' => 1,
-                //'type' => '',
-                //'component_id' => '',
-                'icon' => 'feather icon-menu',
-                //'img' => '',
-                //'lft' => '',
-                //'rgt' => '',
-                //'parameters' => '',
+                'icon' => 'feather icon-menu'
             ],
             [
                 'menu_id' => 1,
@@ -72,13 +54,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                 'level' => 1,
                 'order' => 4,
                 'parent_id' => 1,
-                //'type' => '',
-                //'component_id' => '',
-                'icon' => 'feather icon-box',
-                //'img' => '',
-                //'lft' => '',
-                //'rgt' => '',
-                //'parameters' => '',
+                'icon' => 'feather icon-box'
             ],
             [
                 'menu_id' => 1,
@@ -88,13 +64,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                 'level' => 1,
                 'order' => 5,
                 'parent_id' => 1,
-                //'type' => '',
-                //'component_id' => '',
-                'icon' => 'feather icon-sidebar',
-                //'img' => '',
-                //'lft' => '',
-                //'rgt' => '',
-                //'parameters' => '',
+                'icon' => 'feather icon-sidebar'
             ],
             [
                 'menu_id' => 1,
@@ -104,13 +74,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                 'level' => 1,
                 'order' => 6,
                 'parent_id' => 1,
-                //'type' => '',
-                //'component_id' => '',
-                'icon' => 'feather icon-layers',
-                //'img' => '',
-                //'lft' => '',
-                //'rgt' => '',
-                //'parameters' => '',
+                'icon' => 'feather icon-layers'
             ],
             [
                 'menu_id' => 1,
@@ -120,13 +84,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                 'level' => 1,
                 'order' => 7,
                 'parent_id' => 1,
-                //'type' => '',
-                //'component_id' => '',
-                'icon' => 'feather icon-users',
-                //'img' => '',
-                //'lft' => '',
-                //'rgt' => '',
-                //'parameters' => '',
+                'icon' => 'feather icon-users'
             ],
                 [
                     'menu_id' => 1,
@@ -136,13 +94,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                     'level' => 2,
                     'order' => 1,
                     'parent_id' => 7,
-                    //'type' => '',
-                    //'component_id' => '',
-                    'icon' => '',
-                    //'img' => '',
-                    //'lft' => '',
-                    //'rgt' => '',
-                    //'parameters' => '',
+                    'icon' => ''
                 ],
                 [
                     'menu_id' => 1,
@@ -152,13 +104,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                     'level' => 2,
                     'order' => 2,
                     'parent_id' => 7,
-                    //'type' => '',
-                    //'component_id' => '',
-                    'icon' => '',
-                    //'img' => '',
-                    //'lft' => '',
-                    //'rgt' => '',
-                    //'parameters' => '',
+                    'icon' => ''
                 ],
                 [
                     'menu_id' => 1,
@@ -168,13 +114,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                     'level' => 2,
                     'order' => 3,
                     'parent_id' => 7,
-                    //'type' => '',
-                    //'component_id' => '',
-                    'icon' => 'feather icon-users',
-                    //'img' => '',
-                    //'lft' => '',
-                    //'rgt' => '',
-                    //'parameters' => '',
+                    'icon' => 'feather icon-users'
                 ],
                 [
                     'menu_id' => 1,
@@ -184,13 +124,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                     'level' => 2,
                     'order' => 4,
                     'parent_id' => 7,
-                    //'type' => '',
-                    //'component_id' => '',
-                    'icon' => '',
-                    //'img' => '',
-                    //'lft' => '',
-                    //'rgt' => '',
-                    //'parameters' => '',
+                    'icon' => ''
                 ],
             [
                 'menu_id' => 1,
@@ -200,13 +134,7 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                 'level' => 1,
                 'order' => 8,
                 'parent_id' => 1,
-                //'type' => '',
-                //'component_id' => '',
-                'icon' => 'feather icon-paperclip',
-                //'img' => '',
-                //'lft' => '',
-                //'rgt' => '',
-                //'parameters' => '',
+                'icon' => 'feather icon-paperclip'
             ],
             [
                 'menu_id' => 1,
@@ -216,14 +144,14 @@ class MenuItemsTableSeederTableSeeder extends Seeder
                 'level' => 1,
                 'order' => 9,
                 'parent_id' => 1,
-                //'type' => '',
-                //'component_id' => '',
-                'icon' => 'feather icon-settings',
-                //'img' => '',
-                //'lft' => '',
-                //'rgt' => '',
-                //'parameters' => '',
+                'icon' => 'feather icon-settings'
             ]
-        ]);
+            ];
+        
+        foreach( $menuItems as $item)
+        {
+            MenuItem::create($item);
+        }
+        
     }
 }

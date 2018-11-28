@@ -14,6 +14,7 @@ class CreateModuleMenuItemsTable extends Migration
     public function up()
     {
         Schema::create('module_menu_items', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->integer('module_id');
             $table->integer('menu_item_id');
         });

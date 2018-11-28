@@ -16,4 +16,14 @@ class Module extends Model
         'order',
         'parameters'
     ];
+
+    public function allModuleMenuItems()
+    {
+    	return $this->hasMany(ModuleMenuItem::class);
+    }
+
+    public function moduleMenuItems()
+    {
+    	return $this->allModuleMenuItems();
+    }
 }
