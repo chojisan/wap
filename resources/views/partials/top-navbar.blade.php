@@ -1,4 +1,4 @@
-<nav class="navbar header-navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow">
+<nav class="navbar header-navbar navbar-dark fixed-top bg-dark flex-md-nowrap p-0 shadow-sm">
     <div class="navbar-logo col-md-2">
         <a class="mobile-menu" id="mobile-collapse" href="#!">
             <i class="feather icon-menu"></i>

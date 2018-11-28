@@ -43,8 +43,7 @@
                                 @endif
                             </div>
                         <div class="card-block">
-                            <a class="btn btn-success" href="{{ route('menu.create') }}"> Create New Menu</a>
-
+                            <a class="btn btn-success mb-3" href="{{ route('menu.create') }}"> Create New Menu</a>
                             <table width="100%" class="table table-striped table-bordered table-hover" id="default-dataTables">
                             <thead>
                                 <tr>
@@ -66,13 +65,13 @@
                                     <td>{{ $menu->description }}</td>
                                     <td>{{ $menu->type }}</td>
                                     <td>{{ $menu->parameters }}</td>
-                                    <td><a href="{{ route('menu.show',$menu->id) }}">Show</a></td>
-                                    <td><a href="{{ route('menu.edit',$menu->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
+                                    <td><a href="{{ route('menu.show',$menu->id) }}" class="btn btn-primary p-1-2"><i class="feather icon-eye"></i></a></td>
+                                    <td><a href="{{ route('menu.edit',$menu->id) }}" class="btn btn-primary p-1-2"><i class="feather icon-edit"></i></a></td>
                                     <td>
                                     <form action="{{ route('menu.destroy',$menu->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger p-1-2"><i class="feather icon-trash"></i></button>
                                     </form>
                                     </td>
                                 </tr> 

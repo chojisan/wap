@@ -46,7 +46,7 @@
                                 @endif
                             </div>
                         <div class="card-block">
-                            <a class="btn btn-success" href="{{ route('template.create') }}"> Create New Template</a>
+                            <a class="btn btn-success mb-3" href="{{ route('template.create') }}"> Create New Template</a>
                             <table width="100%" class="table table-striped table-bordered table-hover" id="default-dataTables">
                             <thead>
                                 <tr>
@@ -70,13 +70,13 @@
                                     <td>{{ $template->type }}</td>
                                     <td>{{ $template->parameters }}</td>
                                     <td>{{ $template->status }}</td>
-                                    <td><a href="{{ route('template.show',$template->id) }}">Show</a></td>
-                                    <td><a href="{{ route('template.edit',$template->id) }}" class="btn btn-primary"><i class="fa fa-edit"></i></a></td>
+                                    <td><a href="{{ route('template.show',$template->id) }}" class="btn btn-primary p-1-2"><i class="feather icon-eye"></i></a></td>
+                                    <td><a href="{{ route('template.edit',$template->id) }}" class="btn btn-primary p-1-2"><i class="feather icon-edit"></i></a></td>
                                     <td>
                                     <form action="{{ route('template.destroy',$template->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger"><i class="fa fa-trash"></i></button>
+                                        <button type="submit" class="btn btn-danger p-1-2"><i class="feather icon-trash"></i></button>
                                     </form>
                                     </td>
                                 </tr> 

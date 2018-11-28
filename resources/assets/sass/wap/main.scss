@@ -101,8 +101,19 @@ a:hover {
     }
 }
 
+// Button Override
+.btn {
+    border-radius: 2px;
+}
+
 // Auth
 @import "auth";
+
+// User
+@import "user";
+
+// Tabs
+@import "tabs";
 
 // Top Navbar
 @import "topnavbar";

@@ -1,0 +1,26 @@
+.md-tabs {
+    position: relative;
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #ddd;
+}
+
+.nav-tabs.md-tabs.tab-timeline li a {
+    padding: 20px 0 10px;
+    color: #404e67;
+    font-size: 16px;
+}
+.md-tabs .nav-item {
+    width: calc(100% / 2);
+    text-align: center;
+}
+.nav-tabs .slide {
+    background: #01a9ac;
+    width: calc(100% / 2);
+    height: 4px;
+    position: absolute;
+    -webkit-transition: left 0.3s ease-out;
+    transition: left 0.3s ease-out;
+    bottom: 0;
+}
