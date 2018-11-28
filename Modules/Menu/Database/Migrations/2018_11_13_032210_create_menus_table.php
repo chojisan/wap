@@ -20,6 +20,7 @@ class CreateMenusTable extends Migration
             $table->string('type', 100); // backend, site
             $table->text('description');
             $table->text('parameters')->nullable();
+            $table->boolean('active')->default(true);
             $table->timestamps();
         });
     }
