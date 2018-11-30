@@ -41,7 +41,7 @@
                   </span>
                   User Accounts
                 </a>
-                <ul class="menu">
+                <ul class="menu submenu">
                     <li class="nav-item">
                       <a href="{{ route('user.index') }}" class="nav-link">Users List</a>
                     </li>

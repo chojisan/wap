@@ -112,6 +112,12 @@ $(document).ready(function () {
         $("#mobile-collapse i").toggleClass("icon-toggle-right");
         $("#mobile-collapse i").toggleClass("icon-toggle-left");
     });
+
+    // left sidebar menu
+    $("li.hasmenu").on("click", function (e) {
+        e.preventDefault();
+        $("ul.submenu").show();
+    });
 });
 
 // toggle full screen
