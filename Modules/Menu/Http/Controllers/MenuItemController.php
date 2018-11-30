@@ -54,8 +54,9 @@ class MenuItemController extends Controller
      * Show the specified resource.
      * @return Response
      */
-    public function show(MenuItem $menuItem)
+    public function show(Menu $menu, $menuItem)
     {
+        $menuItem = $menu->menuItems()->where('id', $menuItem)->first();
         return view('menu::menuitems.show', compact('menuItem'));
     }
 

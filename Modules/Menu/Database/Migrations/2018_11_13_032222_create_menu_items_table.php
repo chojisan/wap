@@ -30,6 +30,7 @@ class CreateMenuItemsTable extends Migration
             $table->integer('lft')->nullable();
             $table->integer('rgt')->nullable();
             $table->text('parameters')->nullable();
+            $table->integer('status');
             $table->timestamps();
         });
     }
