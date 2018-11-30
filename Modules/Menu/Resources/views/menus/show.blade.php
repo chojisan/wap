@@ -41,50 +41,115 @@
                                 <h5>Menu</h5>
                             </div>
                             <div class="card-block">
-                                <div class="form-wrapper ">
-                                    <form>
-                                        <div class="form-content">
-                                            
-                                            <div class="form-group row">
-                                                <label for="title" class="col-sm-2 col-form-label">Title</label>
-                                                <div class="col-sm-10">
-                                                {{ $menu->title }}
+                                <div class="view-info">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="general-info">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive">
+                                                            <table class="table m-0">
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <th scope="row">Title</th>
+                                                                        <td>{{ $menu->title }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Description</th>
+                                                                        <td>{{ $menu->description }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Menu Type</th>
+                                                                        <td>{{ $menu->type }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Parameters</th>
+                                                                        <td>{{ $menu->parameters }}</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <th scope="row">Status</th>
+                                                                        <td>{{ $menu->active }}</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end of table col-lg-6 -->
                                                 </div>
+                                                <!-- end of row -->
                                             </div>
-                                            <div class="form-group row">
-                                                <label for="description" class="col-sm-2 col-form-label">Description</label>
-                                                <div class="col-sm-10">
-                                                {{ $menu->description }}
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="type" class="col-sm-2 col-form-label">Menu Type</label>
-                                                <div class="col-sm-10">
-                                                {{ $menu->type }}
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="parameters" class="col-sm-2 col-form-label">Parameters</label>
-                                                <div class="col-sm-10">
-                                                {{ $menu->parameters }}
-                                                </div>
-                                            </div>
-                                            <div class="form-group row">
-                                                <label for="type" class="col-sm-2 col-form-label">Active</label>
-                                                <div class="col-sm-10">
-                                                {{ $menu->active }}
-                                                </div>
-                                            </div>
+                                            <!-- end of general info -->
                                         </div>
-                                        <div class="form-footer">
-                                            <a class="btn btn-primary" href="{{ route('menu.index') }}">Cancel</a>
-                                        </div>
-                                    </form>   
+                                        <!-- end of col-lg-12 -->
+                                    </div>
+                                    <!-- end of row -->
                                 </div>
-                            </div>
+                                <!-- end of view-info -->
+                            </div>                               
                         </div>
                     </div>
                 </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5>Menu Items</h5>
+                            </div>
+                            <div class="card-block">
+                                <div class="view-info">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="general-info">
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <div class="table-responsive">
+                                                            <table width="100%" class="table table-striped table-bordered table-hover" id="default-dataTables">
+                                                                <thead>
+                                                                    <tr>
+                                                                        <th>ID</th>
+                                                                        <th>Menu</th>
+                                                                        <th>Title</th>
+                                                                        <th>Slug</th>
+                                                                        <th>URL</th>
+                                                                        <th>Type</th>
+                                                                        <th>Order</th>
+                                                                        <th>Parameters</th>
+                                                                    </tr>
+                                                                </thead>  
+                                                                <tbody>
+                                                                    @foreach($menu->menuItems as $item) 
+                                                                    <tr>
+                                                                        <td>{{ $item->id }}</td>
+                                                                        <td></td>
+                                                                        <td>{{ $item->title }}</td>
+                                                                        <td>{{ $item->slug }}</td>
+                                                                        <td>{{ $item->url }}</td>
+                                                                        <td>{{ $item->type }}</td>
+                                                                        <td>{{ $item->order }}</td>
+                                                                        <td>{{ $item->parameters }}</td>
+                                                                    </tr> 
+                                                                    @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div>
+                                                    </div>
+                                                    <!-- end of table col-lg-6 -->
+                                                </div>
+                                                <!-- end of row -->
+                                            </div>
+                                            <!-- end of general info -->
+                                        </div>
+                                        <!-- end of col-lg-12 -->
+                                    </div>
+                                    <!-- end of row -->
+                                </div>
+                                <!-- end of view-info -->
+                            </div>                               
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

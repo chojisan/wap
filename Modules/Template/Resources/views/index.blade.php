@@ -70,7 +70,7 @@
                                     <td>{{ $template->type }}</td>
                                     <td>{{ $template->parameters }}</td>
                                     <td>{{ $template->status }}</td>
-                                    <td><a href="{{ route('template.show',$template->id) }}" class="btn btn-primary p-1-2"><i class="feather icon-eye"></i></a></td>
+                                    <td><a href="{{ route('template.show',$template->id) }}" class="btn btn-warning p-1-2"><i class="feather icon-eye"></i></a></td>
                                     <td><a href="{{ route('template.edit',$template->id) }}" class="btn btn-primary p-1-2"><i class="feather icon-edit"></i></a></td>
                                     <td>
                                     <form action="{{ route('template.destroy',$template->id) }}" method="POST">

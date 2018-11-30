@@ -50,17 +50,17 @@
                             <table width="100%" class="table table-striped table-bordered table-hover" id="default-dataTables">
                             <thead>
                                 <tr>
-                                <th>ID</th>
-                                <th>Menu</th>
-                                <th>Title</th>
-                                <th>Slug</th>
-                                <th>URL</th>
-                                <th>Type</th>
-                                <th>Order</th>
-                                <th>Parameters</th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
+                                    <th>ID</th>
+                                    <th>Menu</th>
+                                    <th>Title</th>
+                                    <th>Slug</th>
+                                    <th>URL</th>
+                                    <th>Type</th>
+                                    <th>Order</th>
+                                    <th>Parameters</th>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
                                 </tr>
                             </thead>  
                             <tbody>
