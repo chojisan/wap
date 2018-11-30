@@ -10,7 +10,8 @@ class Menu extends Model
         'title',
         'type',
         'description',
-        'parameters'
+        'parameters',
+        'active'
     ];
 
     public function allMenuItems()

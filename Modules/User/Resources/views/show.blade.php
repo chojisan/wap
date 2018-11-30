@@ -93,7 +93,7 @@
                                     <div class="card-header">
                                         <h5 class="card-header-text">About Me</h5>
                                         <button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
-                                            <i class="icofont icofont-edit"></i>
+                                            <i class="feather icon-edit"></i>
                                         </button>
                                     </div>
                                     <div class="card-block">

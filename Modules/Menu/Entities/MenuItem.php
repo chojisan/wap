@@ -22,4 +22,9 @@ class MenuItem extends Model
         'rgt',
         'parameters'
     ];
+
+    public function menu()
+    {
+        return $this->belongsTo(Menu::class);
+    }
 }

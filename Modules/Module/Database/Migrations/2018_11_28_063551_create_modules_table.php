@@ -22,6 +22,7 @@ class CreateModulesTable extends Migration
             $table->string('module');
             $table->integer('order');
             $table->text('parameters');
+            $table->integer('access'); // public,
             $table->timestamps();
         });
     }

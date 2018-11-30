@@ -88,6 +88,18 @@ a:hover {
   position: inherit;
 }
 
+.form-control {
+  font-size: 14px;
+  border-radius: 2px;
+  border: 1px solid #ccc;
+}
+
+.form-control:focus {
+  border: 1px solid #01a9ac;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
 .btn {
   border-radius: 2px;
 }

@@ -11,6 +11,6 @@
 |
 */
 
-Route::prefix('media')->group(function() {
-    Route::get('/', 'MediaController@index');
+Route::prefix('backend/media')->group(function() {
+    Route::get('/', 'MediaController@index')->name('media');
 });

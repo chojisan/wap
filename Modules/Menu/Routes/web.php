@@ -12,3 +12,4 @@
 */
 
 Route::resource('backend/menu','MenuController');
+Route::resource('backend/menu/{menu}/menuitems','MenuItemController');

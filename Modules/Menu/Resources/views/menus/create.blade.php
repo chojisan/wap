@@ -85,6 +85,17 @@
                                                 </textarea>
                                                 </div>
                                             </div>
+                                            <div class="form-group row">
+                                                <label for="type" class="col-sm-2 col-form-label">Active</label>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="active" id="active1" value="1" checked>
+                                                    <label class="form-check-label" for="active1">Active</label>
+                                                </div>
+                                                <div class="form-check form-check-inline">
+                                                    <input class="form-check-input" type="radio" name="active" id="active2" value="0">
+                                                    <label class="form-check-label" for="active2">Inactive</label>
+                                                </div>
+                                            </div>
                                         </div>
                                         <div class="form-footer">
                                             <a class="btn btn-primary" href="{{ route('menu.index') }}">Cancel</a>

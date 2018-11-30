@@ -17,7 +17,7 @@ class MenuController extends Controller
     public function index()
     {
         $menus = Menu::all();
-        return view('menu::index', compact('menus'));
+        return view('menu::menus.index', compact('menus'));
     }
 
     /**
@@ -26,7 +26,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        return view('menu::create');
+        return view('menu::menus.create');
     }
 
     /**
@@ -50,18 +50,18 @@ class MenuController extends Controller
      * Show the specified resource.
      * @return Response
      */
-    public function show()
+    public function show(Menu $menu)
     {
-        return view('menu::show');
+        return view('menu::menus.show', compact('menu'));
     }
 
     /**
      * Show the form for editing the specified resource.
      * @return Response
      */
-    public function edit()
+    public function edit(Menu $menu)
     {
-        return view('menu::edit');
+        return view('menu::menus.edit', compact('menu'));
     }
 
     /**
@@ -69,15 +69,31 @@ class MenuController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function update(Request $request)
+    public function update(Request $request, Menu $menu)
     {
+        $request->validate([
+            'title' => 'required',
+            'type' => 'required'
+        ]);
+
+        $menu->update($request->all());
+  
+        return redirect()->route('menu.index')
+                        ->with('success','Menu updated successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      * @return Response
      */
-    public function destroy()
+    public function destroy(Menu $menu)
     {
+        // delete also associated menu items
+        $menu->allMenuItems()->delete();
+
+        $menu->delete();
+
+        return redirect()->route('menu.index')
+                        ->with('success','Menu deleted successfully');
     }
 }

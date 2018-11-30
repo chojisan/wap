@@ -12,4 +12,9 @@ class ModuleMenuItem extends Model
         'module_id',
         'menu_item_id'
     ];
+
+    public function module()
+    {
+        return $this->belongsTo(Module::class);
+    }
 }

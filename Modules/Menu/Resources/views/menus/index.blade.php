@@ -52,6 +52,7 @@
                                 <th>Description</th>
                                 <th>Type</th>
                                 <th>Parameters</th>
+                                <th>Active</th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -61,11 +62,12 @@
                                 @foreach($menus as $menu) 
                                 <tr>
                                     <td>{{ $menu->id }}</td>
-                                    <td>{{ $menu->title }}</td>
+                                    <td><a href="menu/{{ $menu->id }}/menuitems" >{{ $menu->title }}</a></td>
                                     <td>{{ $menu->description }}</td>
                                     <td>{{ $menu->type }}</td>
                                     <td>{{ $menu->parameters }}</td>
-                                    <td><a href="{{ route('menu.show',$menu->id) }}" class="btn btn-primary p-1-2"><i class="feather icon-eye"></i></a></td>
+                                    <td>{{ $menu->active }}</td>
+                                    <td><a href="{{ route('menu.show',$menu->id) }}" class="btn btn-warning p-1-2"><i class="feather icon-eye"></i></a></td>
                                     <td><a href="{{ route('menu.edit',$menu->id) }}" class="btn btn-primary p-1-2"><i class="feather icon-edit"></i></a></td>
                                     <td>
                                     <form action="{{ route('menu.destroy',$menu->id) }}" method="POST">

@@ -76,7 +76,7 @@ class TemplateController extends Controller
         $template->update($request->all());
   
         return redirect()->route('template.index')
-                        ->with('success','Template updated successfully');
+                        ->with('success','Template updated successfully.');
     }
 
     /**
