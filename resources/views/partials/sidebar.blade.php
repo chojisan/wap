@@ -1,4 +1,4 @@
-<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+<nav class="d-none d-md-block bg-light sidebar">
           <div class="sidebar-sticky">
             <ul class="nav flex-column">
               <li class="nav-item">
@@ -35,13 +35,13 @@
                 </a>
               </li>
               <li class="nav-item hasmenu">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="#userSubMenu" aria-expanded="false" data-toggle="collapse">
                 <span class="side-icon">
                   <i class="feather icon-users"></i>
                   </span>
                   User Accounts
                 </a>
-                <ul class="menu submenu">
+                <ul class="menu submenu collapse list-unstyled" id="userSubMenu">
                     <li class="nav-item">
                       <a href="{{ route('user.index') }}" class="nav-link">Users List</a>
                     </li>

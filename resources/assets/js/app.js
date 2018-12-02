@@ -41,9 +41,20 @@ $(document).ready(function() {
     });
 
     // left sidebar menu
-    $("li.hasmenu").on("click", function(e) {
+    $("li.hasmenu > a").on("click", function(e) {
         e.preventDefault();
-        $("ul.submenu").show();
+        $("li.hasmenu > a").toggleClass("active");
+        $("ul.submenu").toggleClass("active");
+    });
+
+    $("#mobile-collapse").on("click", function() {
+        $("nav.sidebar").toggleClass("sidebar-offcanvass");
+    });
+
+    //full screen
+    $(".fullscreen").on("click", function(e) {
+        e.preventDefault();
+        toggleFullScreen();
     });
 });
 

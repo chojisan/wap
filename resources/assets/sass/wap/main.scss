@@ -15,9 +15,30 @@ a:hover {
     text-decoration: none;
 }
 
-// Main Body
-[role="main"] {
-    padding-top: 56px;
+.img-radius {
+    border-radius: 50%;
+}
+
+// off canvass sidebar
+.sidebar-offcanvass {
+    margin-left: -240px;
+
+    + .main-content {
+        margin-left: 0px !important;
+    }
+}
+
+.main-container {
+    margin-top: 56px;
+
+    .main-wrapper {
+        .sidebar {
+            width: 240px;
+        }
+        .main-content {
+            margin-left: 240px;
+        }
+    }
 }
 
 .main-body {

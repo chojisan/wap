@@ -29,12 +29,18 @@
     <body>
         @include('partials.top-navbar')
 
-        <div class="container-fluid">
-            <div class="row">
+        <div class="main-container">
+            <div class="main-wrapper">
                 @include('partials.sidebar')
-                <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
+                <div class="main-content">
                     @yield('content')
-                </main>
+                    <!--
+                    <main role="main" class="main-body col-md-9 col-lg-10 px-4">
+                        
+                    </main>
+                    -->
+                </div>
+                
             </div>
         </div>
 
