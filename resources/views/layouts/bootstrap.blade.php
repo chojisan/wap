@@ -18,11 +18,14 @@
         <link href="{{ asset('assets/vendor/switchery/css/switchery.min.css') }}" rel="stylesheet" type="text/css">
         <link href="{{ asset('assets/vendor/feather/css/feather.css') }}" rel="stylesheet" type="text/css">
 
+        @stack('styles')
+
         <!-- Custom styles for this template -->
         
         <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
-        <link href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet">
+  
         <!--<link href="{{ asset('assets/css/signin.css') }}" rel="stylesheet">-->
+        
         
         
     </head>
@@ -35,11 +38,6 @@
                 @include('partials.sidebar')
                 <div class="main-content">
                     @yield('content')
-                    <!--
-                    <main role="main" class="main-body col-md-9 col-lg-10 px-4">
-                        
-                    </main>
-                    -->
                 </div>
                 
             </div>
@@ -47,10 +45,12 @@
 
         <script src="{{ asset('assets/vendor/jquery/js/jquery.min.js') }}"></script>
         <script src="{{ asset('assets/vendor/bootstrap/assets/js/bootstrap.bundle.min.js') }}"></script>
+
         <script src="{{ asset('assets/vendor/switchery/js/switchery.min.js') }}"></script>
 
         <script src="{{ asset('assets/js/app.js') }}"></script>
-
+        
+        @stack('scripts')
 
     </body>
 </html>

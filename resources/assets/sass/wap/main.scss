@@ -1,6 +1,7 @@
 // Main
 
 body {
+    font-size: 0.875rem;
     background-color: #f6f7fb !important;
 }
 
@@ -15,8 +16,18 @@ a:hover {
     text-decoration: none;
 }
 
+.img-logo {
+    height: 40px;
+}
+
 .img-radius {
     border-radius: 50%;
+}
+
+.feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
 }
 
 // off canvass sidebar
@@ -85,6 +96,24 @@ a:hover {
 }
 
 // File Upload
+.jFiler-input-dragDrop {
+    width: 100%;
+}
+.jFiler-input-choose-btn {
+    color: #fff;
+}
+.jFiler-items-grid .jFiler-item .jFiler-item-container .jFiler-item-info {
+    position: absolute;
+    bottom: -10%;
+    left: 0;
+    width: 100%;
+    color: #fff;
+    padding: 6px 10px;
+    z-index: 9;
+    opacity: 0;
+    -webkit-transition: all 0.12s;
+    transition: all 0.12s;
+}
 
 // Form
 @import "forms";

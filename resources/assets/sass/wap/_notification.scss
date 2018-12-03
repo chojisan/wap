@@ -1,79 +1,5 @@
 /* start profile notification */
 
-.header-navbar .navbar-container .header-notification .dropdown-toggle::after {
-    display: none;
-}
-
-.header-navbar .navbar-container .header-notification .show-notification:after,
-.header-navbar
-    .navbar-container
-    .header-notification
-    .profile-notification:after {
-    content: "";
-    position: absolute;
-    top: -10px;
-    right: 30px;
-    -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
-    border: 10px solid #fff;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    -webkit-box-shadow: -10px -9px 23px 1px rgba(0, 0, 0, 0.1);
-    box-shadow: -10px -9px 23px 1px rgba(0, 0, 0, 0.1);
-}
-
-.header-navbar .navbar-container .header-notification .show-notification li img,
-.header-navbar
-    .navbar-container
-    .header-notification
-    .profile-notification
-    li
-    img {
-    width: 40px;
-    margin-right: 10px;
-    -ms-flex-item-align: start !important;
-    align-self: flex-start !important;
-}
-
-.header-navbar .navbar-container .header-notification .show-notification,
-.header-navbar .navbar-container .header-notification .profile-notification {
-    background: #fff;
-    -webkit-box-shadow: 0 2px 30px 6px rgba(0, 0, 0, 0.1);
-    box-shadow: 0 2px 30px 6px rgba(0, 0, 0, 0.1);
-    position: absolute;
-    -webkit-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-    width: 24rem;
-    right: -15px;
-    top: 75px;
-    left: auto;
-    overflow: visible;
-    border: none;
-}
-
-.header-navbar .navbar-container .header-notification .profile-notification {
-    width: 15em;
-}
-
-.header-navbar .navbar-container .nav-right .dropdown-toggle > .badge {
-    position: absolute;
-    top: 8px;
-    right: -8px;
-    border-radius: 50%;
-}
-
-.header-navbar .navbar-container .header-notification .show-notification li,
-.header-navbar .navbar-container .header-notification .profile-notification li {
-    border-top: 1px solid #01a9ac, #fe9365, #e0e0e0, #fe5d70, #0ac282, #404e67,
-        #2dcee3;
-    line-height: initial;
-    padding: 1em 20px;
-    width: 100%;
-    cursor: pointer;
-    -webkit-transition: all 0.5s ease-in-out;
-    transition: all 0.5s ease-in-out;
-}
-
 .header-navbar
     .navbar-container
     .header-notification
@@ -242,8 +168,6 @@
         -webkit-box-pack: center;
         -ms-flex-pack: center;
         justify-content: center;
-    }
-    .header-navbar .navbar-logo {
         width: 100% !important;
     }
 

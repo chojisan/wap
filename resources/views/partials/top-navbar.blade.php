@@ -34,7 +34,7 @@
                         <div class="dropdown-primary dropdown">
                             <div class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="feather icon-bell"></i>
-                                <span class="badge badge-info">5</span>
+                                <span class="badge badge-info img-radius">5</span>
                             </div>
                             <ul class="show-notification notification-view dropdown-menu" data-dropdown-in="fadeIn" data-dropdown-out="fadeOut">
                                 <li>
@@ -78,7 +78,7 @@
                                     <div class="dropdown-primary dropdown">
                                         <div class="displayChatbox dropdown-toggle" data-toggle="dropdown">
                                             <i class="feather icon-message-square"></i>
-                                            <span class="badge badge-warning">3</span>
+                                            <span class="badge badge-warning img-radius">3</span>
                                         </div>
                                     </div>
                                 </li>

@@ -12,7 +12,6 @@ npm-debug.log
 yarn-error.log
 .env
 .phpunit.result.cache
-/public/font-awesome
+
 /public/assets/images
-/public/feather
 /public/assets/vendor

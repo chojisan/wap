@@ -51,3 +51,17 @@
     </div>
 </div>
 @stop
+
+@push('styles')
+    <link href="{{ asset('assets/vendor/jquery.filer/css/jquery.filer.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/vendor/jquery.filer/css/themes/jquery.filer-dragdropbox-theme.css') }}" rel="stylesheet">
+@endpush
+
+@push('scripts')
+<script src="{{ asset('assets/vendor/jquery.filer/js/jquery.filer.min.js') }}"></script>
+<script src="{{ asset('assets/js/filer.js') }}"></script>
+<script type="text/javascript">
+    
+</script>
+
+@endpush
