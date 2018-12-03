@@ -1,7 +1,9 @@
 // Login Form
-.login-block .auth-login {
-    margin: 20px auto 0 auto;
-    max-width: 450px;
+.login-block {
+    .auth-login {
+        margin: 20px auto 0 auto;
+        max-width: 450px;
+    }
 }
 
 .login-block .form-wrapper form {

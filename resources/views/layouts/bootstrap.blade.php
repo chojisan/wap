@@ -12,17 +12,18 @@
         <title>Web Application Portal</title>
 
         <!-- Bootstrap core CSS -->
-        <link href="{{ asset('bootstrap/assets/css/bootstrap.min.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/vendor/bootstrap/assets/css/bootstrap.min.css') }}" rel="stylesheet">
 
-        <link href="{{ asset('font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('switchery/css/switchery.min.css') }}" rel="stylesheet" type="text/css">
-        <link href="{{ asset('feather/css/feather.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/vendor/switchery/css/switchery.min.css') }}" rel="stylesheet" type="text/css">
+        <link href="{{ asset('assets/vendor/feather/css/feather.css') }}" rel="stylesheet" type="text/css">
 
         <!-- Custom styles for this template -->
         
-        <link href="{{ asset('bootstrap/dashboard.css') }}" rel="stylesheet">
-        <!--<link href="{{ asset('bootstrap/signin.css') }}" rel="stylesheet">-->
         <link href="{{ asset('assets/css/main.css') }}" rel="stylesheet">
+        <link href="{{ asset('assets/css/dashboard.css') }}" rel="stylesheet">
+        <!--<link href="{{ asset('assets/css/signin.css') }}" rel="stylesheet">-->
+        
         
     </head>
 
@@ -44,9 +45,9 @@
             </div>
         </div>
 
-        <script src="{{ asset('jquery/js/jquery.min.js') }}"></script>
-        <script src="{{ asset('bootstrap/assets/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('switchery/js/switchery.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/jquery/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/bootstrap/assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/vendor/switchery/js/switchery.min.js') }}"></script>
 
         <script src="{{ asset('assets/js/app.js') }}"></script>
 
