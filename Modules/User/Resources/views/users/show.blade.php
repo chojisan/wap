@@ -78,7 +78,15 @@
                                     <div class="slide"></div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#binfo" role="tab">User's Permission</a>
+                                    <a class="nav-link" data-toggle="tab" href="#roles" role="tab">Roles</a>
+                                    <div class="slide"></div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#permissions" role="tab">Permissions</a>
+                                    <div class="slide"></div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="tab" href="#password" role="tab">New Password</a>
                                     <div class="slide"></div>
                                 </li>
                             </ul>
