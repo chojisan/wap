@@ -95,6 +95,14 @@ a:hover {
     }
 }
 
+// DataTables Override
+table.dataTable {
+    border-collapse: collapse !important;
+}
+.dataTables_paginate .pagination {
+    float: right;
+}
+
 // File Upload
 .jFiler-input-dragDrop {
     width: 100%;

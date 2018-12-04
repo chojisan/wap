@@ -46,14 +46,16 @@
                       <a href="{{ route('user.index') }}" class="nav-link">Users List</a>
                     </li>
                     <li class="nav-item">
-                      <a href="#" class="nav-link">Roles</a>
+                      <a href="{{ route('role.index') }}" class="nav-link">Roles</a>
                     </li>
+                    <!--
                     <li class="nav-item">
                       <a href="#" class="nav-link">Groups</a>
                     </li>
                     <li class="nav-item">
                       <a href="#" class="nav-link">Permissions</a>
                     </li>
+                    -->
                   </ul>
               </li>
               <li class="nav-item">

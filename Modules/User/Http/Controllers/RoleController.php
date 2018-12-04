@@ -14,7 +14,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-        return view('user::index');
+        
+        return view('user::roles.index');
     }
 
     /**
@@ -23,7 +24,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('user::create');
+        return view('user::roles.create');
     }
 
     /**
@@ -41,7 +42,7 @@ class RoleController extends Controller
      */
     public function show()
     {
-        return view('user::show');
+        return view('user::roles.show');
     }
 
     /**
@@ -50,7 +51,7 @@ class RoleController extends Controller
      */
     public function edit()
     {
-        return view('user::edit');
+        return view('user::roles.edit');
     }
 
     /**

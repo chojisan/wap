@@ -87,6 +87,10 @@ a:hover {
   padding: 25px 20px;
 }
 
+table.dataTable {
+  border-collapse: collapse !important;
+}
+
 .jFiler-input-dragDrop {
   width: 100%;
 }
