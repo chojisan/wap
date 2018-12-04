@@ -22,9 +22,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="#!">Media Manager</a>
                                 </li>
-                                <li class="breadcrumb-item">
-                                    <a href="#!">User Accounts List</a>
-                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -39,7 +37,7 @@
                                 <h5>Media Manager</h5>
                             </div>
                             <div class="card-block">
-                                <div class="sub-title">Example 1</div>
+                                
                                 <input type="file" name="files[]" id="filer_input1" multiple="multiple">
                                 
                             </div>
