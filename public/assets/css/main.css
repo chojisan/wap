@@ -91,6 +91,10 @@ table.dataTable {
   border-collapse: collapse !important;
 }
 
+.dataTables_paginate .pagination {
+  float: right;
+}
+
 .jFiler-input-dragDrop {
   width: 100%;
 }
