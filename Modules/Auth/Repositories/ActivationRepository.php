@@ -3,7 +3,7 @@
 namespace Modules\Auth\Repositories;
 
 use Carbon\Carbon;
-use Modules\User\UserInterface;
+use Modules\User\Entities\UserInterface;
 use Modules\Core\Traits\RepositoryTrait;
 
 class ActivationRepository implements ActivationRepositoryInterface

@@ -6,8 +6,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Modules\User\Entities\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Modules\Auth\Emails\UserActivation;
+use Modules\Auth\Emails\ResetPassword;
 
-use Sentinel;
 use Activation;
 
 class RegisterController extends Controller
@@ -37,16 +38,13 @@ class RegisterController extends Controller
 
         $user = User::create($request->all());
 
-        $user->notify(new UserActivate($user));
+        $activation = Activation::create($user);
 
-        //$activation = Activation::create($user);
+        \Mail::to($user)->send(new UserActivation($user, $activation->code));
 
         //$role = Sentinel::findRoleBySlug('user');
 
         //$role->users()->attach($user);
-
-        // send email
-        //$this->sendMail($user, $activation->code);
 
         return redirect('/backend');
     }
@@ -59,7 +57,7 @@ class RegisterController extends Controller
     {
         $user = User::whereEmail($email)->first();
 
-        if (count($user) == 0)
+        if ( empty($user) )
             abort(404);
 
         if (Activation::complete($user, $code))
@@ -72,18 +70,4 @@ class RegisterController extends Controller
         }
     }
 
-    /**
-     * Send activation email
-     * @return 
-     */
-    private function sendEmail($user, $code)
-    {
-        Mail::send('auth::activation-email', [
-            'user' => $user,
-            'code' => $code
-        ], function($message) use ($user) {
-            $message->to($email);
-            $message->subject("Account activation");
-        });
-    }
 }

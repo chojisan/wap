@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Factory;
 use Modules\Auth\Http\Middleware\LoggedInMiddleware;
 use Illuminate\Routing\Router;
 
+use Modules\Auth\Repositories\ActivationRepository;
+
 class AuthServiceProvider extends ServiceProvider
 {
     /**
@@ -44,6 +46,7 @@ class AuthServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->registerActivations();
     }
 
     /**
@@ -124,5 +127,19 @@ class AuthServiceProvider extends ServiceProvider
     public function provides()
     {
         return [];
+    }
+
+    /**
+     * Registers the activations.
+     *
+     * @return void
+     */
+    protected function registerActivations()
+    {
+        $this->app->singleton('activation', function ($app) {
+            $config = $app['config']->get('activation');
+
+            return new ActivationRepository($config['model'], $config['expires']);
+        });
     }
 }

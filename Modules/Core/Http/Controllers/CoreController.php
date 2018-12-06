@@ -10,7 +10,7 @@ class CoreController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('logged.in');
+        //$this->middleware('logged.in');
     }
     /**
      * Display a listing of the resource.

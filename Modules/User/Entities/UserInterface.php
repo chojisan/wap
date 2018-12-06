@@ -4,50 +4,31 @@ namespace Modules\User\Entities;
 
 interface UserInterface
 {
-    /**
-     * Checks if the user is in the given role.
-     * @param  mixed $role
-     * @return bool
+        /**
+     * Returns the user primary key.
+     *
+     * @return int
      */
-    public function inRole($role);
+    public function getUserId();
 
     /**
-     * Checks if a user belongs to the given Role ID
-     * @param  int $roleId
-     * @return bool
-     */
-    public function hasRoleId($roleId);
-
-    /**
-     * Checks if a user belongs to the given Role Slug
-     * @param  string $slug
-     * @return bool
-     */
-    public function hasRoleSlug($slug);
-
-    /**
-     * Checks if a user belongs to the given Role Name
-     * @param  string $name
-     * @return bool
-     */
-    public function hasRoleName($name);
-
-    /**
-     * Check if the current user is activated
-     * @return bool
-     */
-    public function isActivated();
-
-    /**
-     * Get the first available api key
+     * Returns the user login.
+     *
      * @return string
      */
-    public function getFirstApiKey();
+    public function getUserLogin();
 
     /**
-     * Check if the user has access to the given permission name
-     * @param string $permission
-     * @return boolean
+     * Returns the user login attribute name.
+     *
+     * @return string
      */
-    public function hasAccess($permission);
+    public function getUserLoginName();
+
+    /**
+     * Returns the user password.
+     *
+     * @return string
+     */
+    public function getUserPassword();
 }

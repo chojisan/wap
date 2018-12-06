@@ -169,6 +169,11 @@ table.dataTable {
   max-width: 450px;
 }
 
+.login-block .auth-registration {
+  margin: 20px auto 0 auto;
+  max-width: 700px;
+}
+
 .login-block .form-wrapper form {
   border: none;
   background-color: transparent;

@@ -6,19 +6,19 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-use Cartalyst\Sentinel\Users\EloquentUser;
-
 use Modules\Auth\Entities\Activation;
 use Modules\Auth\Entities\Persistence;
 use Modules\Auth\Entities\Reminder;
 use Modules\Auth\Entities\Role;
 use Modules\Auth\Entities\Throttle;
 
-class User extends Authenticatable //EloquentUser
+class User extends Authenticatable implements UserInterface
 {
     use Notifiable;
     
     protected $table = 'users';
+
+    protected $loginNames = ['email'];
 
     protected $fillable = [
         'username',
@@ -87,25 +87,34 @@ class User extends Authenticatable //EloquentUser
     }
 
     /**
-     * Checks if User has access to $permissions.
+     * {@inheritDoc}
      */
-    public function hasAccess(array $permissions) : bool
+    public function getUserId()
     {
-        // check if the permission is available in any role
-        foreach ($this->roles as $role) {
-            if($role->hasAccess($permissions)) {
-                return true;
-            }
-        }
-        return false;
+        return $this->getKey();
     }
 
     /**
-     * Checks if the user belongs to role.
+     * {@inheritDoc}
      */
-    /*
-    public function inRole(string $roleSlug)
+    public function getUserLogin()
     {
-        return $this->roles()->where('slug', $roleSlug)->count() == 1;
-    }*/
+        return $this->getAttribute($this->getUserLoginName());
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUserLoginName()
+    {
+        return reset($this->loginNames);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function getUserPassword()
+    {
+        return $this->password;
+    }
 }
