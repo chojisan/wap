@@ -2,53 +2,68 @@
 
 namespace Modules\User\Repositories;
 
-use Illuminate\Http\Request;
+use Module\Core\Traits\RepositoryTrait;
 
 /**
  * Interface RoleRepository
  * @package Modules\User\Repositories
  */
-interface RoleRepository
+class RoleRepository implements RoleRepositoryInterface
 {
-    /**
-     * Return all the roles
-     * @return mixed
-     */
-    public function all();
+    use RepositoryTrait;
 
     /**
-     * Create a role resource
-     * @return mixed
+     * The Eloquent role model name.
+     *
+     * @var string
      */
-    public function create($data);
+    protected $model = 'Modules\Role\Entities\Role';
 
     /**
-     * Find a role by its id
-     * @param $id
-     * @return mixed
+     * Create a new Illuminate role repository.
+     *
+     * @param  string  $model
+     * @return void
      */
-    public function find($id);
+    public function __construct($model = null)
+    {
+        if (isset($model)) {
+            $this->model = $model;
+        }
+    }
 
     /**
-     * Update a role
-     * @param $id
-     * @param $data
-     * @return mixed
+     * {@inheritDoc}
      */
-    public function update($id, $data);
+    public function findById($id)
+    {
+        return $this
+            ->createModel()
+            ->newQuery()
+            ->find($id);
+    }
 
     /**
-     * Delete a role
-     * @param $id
-     * @return mixed
+     * {@inheritDoc}
      */
-    public function delete($id);
+    public function findBySlug($slug)
+    {
+        return $this
+            ->createModel()
+            ->newQuery()
+            ->where('slug', $slug)
+            ->first();
+    }
 
     /**
-     * Find a role by its name
-     * @param  string $name
-     * @return mixed
+     * {@inheritDoc}
      */
-    public function findByName($name);
-
+    public function findByName($name)
+    {
+        return $this
+            ->createModel()
+            ->newQuery()
+            ->where('name', $name)
+            ->first();
+    }
 }

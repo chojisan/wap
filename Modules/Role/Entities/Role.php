@@ -7,6 +7,8 @@ use Modules\User\Entities\User;
 
 class Role extends Model implements RoleInterface, PermissibleInterface
 {
+    use PermissibleTrait;
+    
     /**
      * {@inheritDoc}
      */
@@ -20,6 +22,22 @@ class Role extends Model implements RoleInterface, PermissibleInterface
         'slug',
         'permissions',
     ];
+
+    protected static $usersModel = 'Module\User\Entities\User';
+
+    /**
+     * {@inheritDoc}
+     */
+    public function delete()
+    {
+        $isSoftDeleted = array_key_exists('Illuminate\Database\Eloquent\SoftDeletes', class_uses($this));
+
+        if ($this->exists && ! $isSoftDeleted) {
+            $this->users()->detach();
+        }
+
+        return parent::delete();
+    }
 
     /**
      * The Users relationship.
@@ -75,6 +93,50 @@ class Role extends Model implements RoleInterface, PermissibleInterface
     public function getUsers()
     {
         return $this->users;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public static function getUsersModel()
+    {
+        return static::$usersModel;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public static function setUsersModel($usersModel)
+    {
+        static::$usersModel = $usersModel;
+    }
+
+    /**
+     * Dynamically pass missing methods to the permissions.
+     *
+     * @param  string  $method
+     * @param  array  $parameters
+     * @return mixed
+     */
+    public function __call($method, $parameters)
+    {
+        $methods = ['hasAccess', 'hasAnyAccess'];
+
+        if (in_array($method, $methods)) {
+            $permissions = $this->getPermissionsInstance();
+
+            return call_user_func_array([$permissions, $method], $parameters);
+        }
+
+        return parent::__call($method, $parameters);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    protected function createPermissions()
+    {
+        return new static::$permissionsClass($this->permissions);
     }
 
 }

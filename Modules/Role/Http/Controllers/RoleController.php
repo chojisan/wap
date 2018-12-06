@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
 use Modules\Role\Repositories\RoleRepository;
+use Modules\Role\Entities\Role;
 
 class RoleController extends Controller
 {
@@ -15,8 +16,8 @@ class RoleController extends Controller
      */
     public function index()
     {
-
-        return view('role::roles.index');
+        $roles = Role::all();
+        return view('role::roles.index', compact('roles'));
     }
 
     /**
