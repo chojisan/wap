@@ -3,6 +3,9 @@
 namespace Modules\User\Entities;
 
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+
 use Cartalyst\Sentinel\Users\EloquentUser;
 
 use Modules\Auth\Entities\Activation;
@@ -11,7 +14,7 @@ use Modules\Auth\Entities\Reminder;
 use Modules\Auth\Entities\Role;
 use Modules\Auth\Entities\Throttle;
 
-class User extends EloquentUser
+class User extends Authenticatable //EloquentUser
 {
     use Notifiable;
     

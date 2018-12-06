@@ -5,16 +5,19 @@ namespace Modules\Auth\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Modules\User\Entities\User;
+use Illuminate\Foundation\Auth\RegistersUsers;
+
 use Sentinel;
 use Activation;
 
 class RegisterController extends Controller
 {
+    use RegistersUsers;
     /**
      * Display registration form.
      * @return 
      */
-    public function register()
+    public function showRegistrationForm()
     {
         return view('auth::register');
     }
@@ -31,13 +34,15 @@ class RegisterController extends Controller
             'password' => 'required|confirmed',
         ]);
 
-        $user = Sentinel::register($request->all());
+        $user = User::create($request->all());
 
-        $activation = Activation::create($user);
+        $user->notify(new UserActivate($user));
 
-        $role = Sentinel::findRoleBySlug('user');
+        //$activation = Activation::create($user);
 
-        $role->users()->attach($user);
+        //$role = Sentinel::findRoleBySlug('user');
+
+        //$role->users()->attach($user);
 
         // send email
         //$this->sendMail($user, $activation->code);

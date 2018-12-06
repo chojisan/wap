@@ -5,9 +5,13 @@ namespace Modules\Auth\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Modules\User\Entities\User;
+use Illuminate\Foundation\Auth\ThrottlesLogins;
+
 use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
 use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
+use Auth;
 use Validator;
+
 use Mail;
 use Template;
 use Sentinel;
@@ -15,11 +19,12 @@ use Reminder;
 
 class LoginController extends Controller
 {
+    use ThrottlesLogins;
     /**
      * Display login form
      * @return 
      */
-    public function login()
+    public function showLoginForm()
     {
         return view('auth::login');
     }
@@ -30,7 +35,6 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-        try {
             $rememberMe = false;
 
             if (isset($request->remember_me))
@@ -45,7 +49,7 @@ class LoginController extends Controller
     
             $credentials = $request->only('email', 'password');
             
-            if (Sentinel::authenticate($request->all(), $rememberMe)) {
+            if (Auth::attempt($credentials, $rememberMe)) {
                 // Authentication passed...
                 return redirect('/backend');
             }
@@ -53,12 +57,6 @@ class LoginController extends Controller
             {
                 return back()->with("error", "Wrong Login Credentials");
             }
-        } catch (ThrottlingException $e) {
-            $delay = $e->getDelay();
-            return back()->with("error", "You are banned for $delay second(s).");
-        } catch (NotActivatedException $e) {
-            return back()->with("error", "Yor account is not yet activated!");
-        }
 
     }
 
@@ -68,7 +66,7 @@ class LoginController extends Controller
      */
     public function logout()
     {
-        Sentinel::logout();
+        Auth::logout();
 
         return redirect('/');
     }
