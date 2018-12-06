@@ -7,7 +7,6 @@ use App\Http\Controllers\Controller;
 use Modules\User\Entities\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Modules\Auth\Emails\UserActivation;
-use Modules\Auth\Emails\ResetPassword;
 
 use Activation;
 

@@ -8,6 +8,10 @@ use Modules\Auth\Http\Middleware\LoggedInMiddleware;
 use Illuminate\Routing\Router;
 
 use Modules\Auth\Repositories\ActivationRepository;
+use Modules\Auth\Repositories\ReminderRepository;
+
+use Modules\User\Entities\User;
+use Modules\User\Repositories\UserRepository;
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -46,7 +50,9 @@ class AuthServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        //$this->registerUsers();
         $this->registerActivations();
+        //$this->registerReminders();
     }
 
     /**
@@ -126,7 +132,29 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function provides()
     {
-        return [];
+        return [
+            'duyog.activations',
+            'duyog.reminders',
+            'duyog'
+        ];
+    }
+
+    /**
+     * Registers the users.
+     *
+     * @return void
+     */
+    protected function registerUsers()
+    {
+        $this->registerHasher();
+
+        $this->app->singleton('duyog.users', function ($app) {
+            $config = $app['config']->get('duyog.auth.users');
+
+            return new UserRepository(
+                $app['sentinel.hasher'], $app['events'], $config['model']
+            );
+        });
     }
 
     /**
@@ -136,10 +164,28 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected function registerActivations()
     {
-        $this->app->singleton('activation', function ($app) {
-            $config = $app['config']->get('activation');
+        $this->app->singleton('duyog.activations', function ($app) {
+            $config = $app['config']->get('duyog.auth.activation');
 
             return new ActivationRepository($config['model'], $config['expires']);
+        });
+    }
+
+    /**
+     * Registers the reminders.
+     *
+     * @return void
+     */
+    protected function registerReminders()
+    {
+        dd($this->app);
+        $this->app->singleton('duyog.reminders', function ($app) {
+
+            $config = $app['config']->get('duyog.auth.reminders');
+            
+            return new ReminderRepository(
+                $app['auth'], $config['model'], $config['expires']
+            );
         });
     }
 }

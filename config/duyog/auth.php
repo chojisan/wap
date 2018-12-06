@@ -1,7 +1,6 @@
 <?php
 
 return [
-    'name' => 'Auth',
 
     'users' => [
         'model' => \Modules\User\Entities\User::class,
