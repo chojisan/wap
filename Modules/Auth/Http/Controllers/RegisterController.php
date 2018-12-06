@@ -13,6 +13,7 @@ use Activation;
 class RegisterController extends Controller
 {
     use RegistersUsers;
+
     /**
      * Display registration form.
      * @return 
@@ -26,7 +27,7 @@ class RegisterController extends Controller
      * Post registration
      * @return 
      */
-    public function postRegister(Request $request)
+    public function register(Request $request)
     {
         $this->validate(request(), [
             'username' => 'required|unique:users',

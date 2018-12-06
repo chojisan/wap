@@ -35,29 +35,29 @@ class LoginController extends Controller
      */
     public function authenticate(Request $request)
     {
-            $rememberMe = false;
+        $rememberMe = false;
 
-            if (isset($request->remember_me))
-            {
-                $rememberMe = true;
-            }
+        if (isset($request->remember_me))
+        {
+            $rememberMe = true;
+        }
 
-            $this->validate($request, [
-                'email' => 'required|email',
-                'password' => 'required'
-            ]);
+        $this->validate($request, [
+            'email' => 'required|email',
+            'password' => 'required'
+        ]);
     
-            $credentials = $request->only('email', 'password');
+        $credentials = $request->only('email', 'password');
             
-            if (Auth::attempt($credentials, $rememberMe)) {
-                // Authentication passed...
-                return redirect('/backend');
-            }
-            else
-            {
-                return back()->with("error", "Wrong Login Credentials");
-            }
-
+        if (Auth::attempt($credentials, $rememberMe))
+        {
+            // Authentication passed...
+            return redirect('/backend');
+        }
+        else
+        {
+            return back()->with("error", "Wrong Login Credentials");
+        }
     }
 
     /**

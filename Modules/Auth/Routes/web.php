@@ -32,7 +32,7 @@ Route::prefix('auth')->group(function() {
     //Route::post('/reset/{email}/{code}', 'ResetPasswordController@postResetPassword');
 
     Route::get('/register', 'RegisterController@showRegistrationForm');
-    Route::post('/register', 'RegisterController@postRegister');
+    Route::post('/register', 'RegisterController@register');
     Route::get('/activate/{email}/{code}', 'RegisterController@activate');
 
 });
