@@ -1,0 +1,25 @@
+{
+    "name": "takada/role",
+    "description": "",
+    "authors": [
+        {
+            "name": "Choji Takada",
+            "email": "choji.takada@gmail.com"
+        }
+    ],
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Role\\Providers\\RoleServiceProvider"
+            ],
+            "aliases": {
+                
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Role\\": ""
+        }
+    }
+}

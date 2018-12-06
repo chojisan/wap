@@ -22,5 +22,4 @@ Route::prefix('backend/user')->group(function() {
 */
 
 Route::resource('backend/user','UserController');
-Route::resource('backend/role','RoleController');
 //Route::get('backend/user/user-profile','UserController@userProfile');

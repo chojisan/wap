@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\User\Http\Controllers;
+namespace Modules\Role\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\User\Repositories\RoleRepository;
+use Modules\Role\Repositories\RoleRepository;
 
 class RoleController extends Controller
 {
@@ -16,7 +16,7 @@ class RoleController extends Controller
     public function index()
     {
 
-        return view('user::roles.index');
+        return view('role::roles.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        return view('user::roles.create');
+        return view('role::roles.create');
     }
 
     /**
@@ -43,7 +43,7 @@ class RoleController extends Controller
      */
     public function show()
     {
-        return view('user::roles.show');
+        return view('role::roles.show');
     }
 
     /**
@@ -52,7 +52,7 @@ class RoleController extends Controller
      */
     public function edit()
     {
-        return view('user::roles.edit');
+        return view('role::roles.edit');
     }
 
     /**
