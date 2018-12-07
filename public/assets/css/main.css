@@ -87,6 +87,17 @@ a:hover {
   padding: 25px 20px;
 }
 
+.card .card-header h1,
+.card .card-header h2,
+.card .card-header h3,
+.card .card-header h4,
+.card .card-header h5 {
+  margin-bottom: 0;
+  color: #505458;
+  display: inline-block;
+  margin-right: 10px;
+}
+
 table.dataTable {
   border-collapse: collapse !important;
 }
@@ -200,6 +211,10 @@ table.dataTable {
   height: auto;
 }
 
+.card-block {
+  padding: 1.25rem;
+}
+
 .card-block.user-info {
   position: absolute;
   width: 100%;
@@ -235,33 +250,45 @@ table.dataTable {
   float: right;
 }
 
-.md-tabs {
+.nav-tabs {
+  border-bottom: 1px solid #ddd;
   position: relative;
 }
 
-.nav-tabs {
-  border-bottom: 1px solid #ddd;
+.nav-tabs .nav-item {
+  border: none;
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  text-align: center;
 }
 
-.nav-tabs.md-tabs.tab-timeline li a {
-  padding: 20px 0 10px;
+.nav-tabs .nav-item .nav-link {
+  border: none;
+  padding: 20px 0;
   color: #404e67;
   font-size: 16px;
 }
 
-.md-tabs .nav-item {
-  width: calc(100% / 2);
-  text-align: center;
+.nav-tabs .nav-item .nav-link.active,
+.nav-tabs .nav-item .nav-link:hover {
+  color: #01a9ac !important;
+  border: none;
 }
 
-.nav-tabs .slide {
+.nav-tabs .nav-item .slide {
   background: #01a9ac;
-  width: calc(100% / 2);
   height: 4px;
   position: absolute;
   -webkit-transition: left 0.3s ease-out;
   transition: left 0.3s ease-out;
   bottom: 0;
+}
+
+.md-tabs .nav-item .nav-link.active ~ .slide {
+  opacity: 1;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .header-navbar {

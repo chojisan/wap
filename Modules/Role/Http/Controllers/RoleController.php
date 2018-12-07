@@ -42,18 +42,18 @@ class RoleController extends Controller
      * Show the specified resource.
      * @return Response
      */
-    public function show()
+    public function show(Role $role)
     {
-        return view('role::roles.show');
+        return view('role::roles.show', compact('role'));
     }
 
     /**
      * Show the form for editing the specified resource.
      * @return Response
      */
-    public function edit()
+    public function edit(Role $role)
     {
-        return view('role::roles.edit');
+        return view('role::roles.edit', compact('role'));
     }
 
     /**

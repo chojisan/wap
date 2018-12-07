@@ -92,6 +92,17 @@ a:hover {
         background-color: transparent;
         border-bottom: none;
         padding: 25px 20px;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            margin-bottom: 0;
+            color: #505458;
+            display: inline-block;
+            margin-right: 10px;
+        }
     }
 }
 

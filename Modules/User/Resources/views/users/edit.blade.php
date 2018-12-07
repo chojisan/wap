@@ -20,7 +20,7 @@
                                     <a href="index.html"> <i class="feather icon-home"></i> </a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="#!">Users</a>
+                                    <a href="#!">User Accounts</a>
                                 </li>
                                 <li class="breadcrumb-item">
                                     <a href="#!">User Accounts List</a>

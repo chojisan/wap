@@ -20,13 +20,13 @@
                                     <a href="index.html"> <i class="feather icon-home"></i> </a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="#!">Users</a>
+                                    <a href="#!">User Accounts</a>
                                 </li>
                                 <li class="breadcrumb-item">
                                     <a href="#!">User Accounts List</a>
                                 </li>
                                 <li class="breadcrumb-item">
-                                    <a href="#!">User Profile</a>
+                                    <a href="#!">Show User Profile</a>
                                 </li>
                             </ul>
                         </div>
@@ -100,7 +100,7 @@
                                 <div class="card">
                                     <div class="card-header">
                                         <h5 class="card-header-text">About Me</h5>
-                                        <button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light f-right">
+                                        <button id="edit-btn" type="button" class="btn btn-sm btn-primary waves-effect waves-light float-right">
                                             <i class="feather icon-edit"></i>
                                         </button>
                                     </div>
