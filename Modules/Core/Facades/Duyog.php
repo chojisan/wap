@@ -1,16 +1,16 @@
 <?php
 
-namespace Modules\Auth\Facades;
+namespace Modules\Core\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class Activation extends Facade
+class Duyog extends Facade
 {
     /**
      * {@inheritDoc}
      */
     protected static function getFacadeAccessor()
     {
-        return 'activation';
+        return 'duyog';
     }
 }

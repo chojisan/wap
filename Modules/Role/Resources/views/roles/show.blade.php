@@ -44,15 +44,21 @@
                         <div class="tab-header card">
                             <ul class="nav nav-tabs md-tabs tab-timeline" role="tablist" id="mytab">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#personal" role="tab">Role Info</a>
+                                    <a class="nav-link active" data-toggle="tab" href="#personal" role="tab">
+                                        <i class="feather icon-user"></i>Role Info
+                                    </a>
                                     <div class="slide"></div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#permissions" role="tab">Permissions</a>
+                                    <a class="nav-link" data-toggle="tab" href="#permissions" role="tab">
+                                        <i class="feather icon-user"></i>Permissions
+                                    </a>
                                     <div class="slide"></div>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#users" role="tab">Users</a>
+                                    <a class="nav-link" data-toggle="tab" href="#users" role="tab">
+                                        <i class="feather icon-users"></i>Users
+                                    </a>
                                     <div class="slide"></div>
                                 </li>
                             </ul>
@@ -125,7 +131,29 @@
                                         </button>
                                     </div>
                                     <div class="card-block">
-                                        
+                                        <div role="radiogroup" class="el-radio-group">
+                                            <label role="radio" tabindex="0" class="el-radio-button is-active" aria-checked="true">
+                                                <input type="radio" tabindex="-1" class="el-radio-button__orig-radio" value="1">
+                                                <span class="el-radio-button__inner">Allow</span>
+                                            </label>
+                                            <label role="radio" aria-disabled="true" tabindex="-1" class="el-radio-button is-disabled">
+                                                <input type="radio" disabled="disabled" tabindex="-1" class="el-radio-button__orig-radio" value="0">
+                                                <span class="el-radio-button__inner">Inherit from role</span>
+                                            </label>
+                                            <label role="radio" tabindex="-1" class="el-radio-button">
+                                                <input type="radio" tabindex="-1" class="el-radio-button__orig-radio" value="-1">
+                                                <span class="el-radio-button__inner">Deny</span>
+                                            </label>
+                                        </div>
+
+                                        <div class="input-group">
+                                            <div id="radioBtn" class="btn-group">
+                                                <a class="btn btn-primary btn-sm active" data-toggle="fun" data-title="Y">Allow</a>
+                                                <a class="btn btn-primary btn-sm notActive" data-toggle="fun" data-title="X">Inherit from role</a>
+                                                <a class="btn btn-primary btn-sm notActive" data-toggle="fun" data-title="N">Deny</a>
+                                            </div>
+                                            <input type="hidden" name="fun" id="fun">
+                                        </div>
                                     </div>
                                     <!-- end of card-block -->
                                 </div>
@@ -158,3 +186,17 @@
     </div>
 </div>
 @stop
+
+@push('scripts')
+<script>
+$('#radioBtn a').on('click', function(){
+    var sel = $(this).data('title');
+    var tog = $(this).data('toggle');
+    $('#'+tog).prop('value', sel);
+    
+    $('a[data-toggle="'+tog+'"]').not('[data-title="'+sel+'"]').removeClass('active').addClass('notActive');
+    $('a[data-toggle="'+tog+'"][data-title="'+sel+'"]').removeClass('notActive').addClass('active');
+})
+</script>
+
+@endpush

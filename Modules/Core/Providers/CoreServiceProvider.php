@@ -36,6 +36,7 @@ class CoreServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->registerDuyog();
     }
 
     /**
@@ -102,12 +103,31 @@ class CoreServiceProvider extends ServiceProvider
     }
 
     /**
+     * Registers duyog.
+     *
+     * @return void
+     */
+    protected function registerDuyog()
+    {
+        $this->app->singleton('duyog', function ($app) {
+            $duyog = new Duyog();
+
+            //$duyog->setActivationRepository($app['duyog.activations']);
+            //$duyog->setReminderRepository($app['duyog.reminders']);
+
+            return $duyog;
+        });
+        $this->app->alias('duyog', 'Module\Core\Duyog');
+    }
+    /**
      * Get the services provided by the provider.
      *
      * @return array
      */
     public function provides()
     {
-        return [];
+        return [
+            'duyog'
+        ];
     }
 }

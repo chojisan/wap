@@ -5,6 +5,7 @@ namespace Modules\Auth\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Modules\User\Entities\User;
+use Modules\Role\Entities\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Modules\Auth\Emails\UserActivation;
 
@@ -39,11 +40,11 @@ class RegisterController extends Controller
 
         $activation = Activation::create($user);
 
+        $role = Role::whereSlug('registered')->first();
+
+        $role->users()->attach($user);
+
         \Mail::to($user)->send(new UserActivation($user, $activation->code));
-
-        //$role = Sentinel::findRoleBySlug('user');
-
-        //$role->users()->attach($user);
 
         return redirect('/backend');
     }
@@ -68,5 +69,4 @@ class RegisterController extends Controller
             abort(404);
         }
     }
-
 }

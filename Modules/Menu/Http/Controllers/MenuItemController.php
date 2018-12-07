@@ -64,9 +64,10 @@ class MenuItemController extends Controller
      * Show the form for editing the specified resource.
      * @return Response
      */
-    public function edit(MenuItem $menuItem)
+    public function edit(Menu $menu, $menuItem)
     {
-        return view('menu::menuitems.edit', compact('menuItem'));
+        $menuItem = $menu->menuItems()->where('id', $menuItem)->first();
+        return view('menu::menuitems.edit', compact('menu', 'menuItem'));
     }
 
     /**
@@ -88,7 +89,7 @@ class MenuItemController extends Controller
 
         $menuItem->update($request->all());
   
-        return redirect()->route('menu.index')
+        return redirect()->route('menuitems.index')
                         ->with('success','Menu Item updated successfully.');
     }
 

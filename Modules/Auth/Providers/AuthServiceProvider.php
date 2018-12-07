@@ -49,6 +49,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function register()
     {
+        //dd($this->app);
         $this->app->register(RouteServiceProvider::class);
         //$this->registerUsers();
         $this->registerActivations();
@@ -134,8 +135,7 @@ class AuthServiceProvider extends ServiceProvider
     {
         return [
             'duyog.activations',
-            'duyog.reminders',
-            'duyog'
+            'duyog.reminders'
         ];
     }
 
@@ -164,11 +164,12 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected function registerActivations()
     {
-        $this->app->singleton('duyog.activations', function ($app) {
+        $this->app->singleton('activation', function ($app) {
             $config = $app['config']->get('duyog.auth.activation');
 
             return new ActivationRepository($config['model'], $config['expires']);
         });
+
     }
 
     /**
@@ -178,7 +179,6 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected function registerReminders()
     {
-        dd($this->app);
         $this->app->singleton('duyog.reminders', function ($app) {
 
             $config = $app['config']->get('duyog.auth.reminders');

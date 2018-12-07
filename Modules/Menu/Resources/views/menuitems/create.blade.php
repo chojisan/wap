@@ -119,8 +119,7 @@
                                             <div class="form-group row">
                                                 <label for="parameters" class="col-sm-2 col-form-label">Parameters</label>
                                                 <div class="col-sm-10">
-                                                <textarea class="form-control" name="parameters">
-                                                </textarea>
+                                                <textarea class="form-control" name="parameters"></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group row">

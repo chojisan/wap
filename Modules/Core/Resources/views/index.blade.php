@@ -2,9 +2,6 @@
 
 @section('content')
 
-@if($user = Sentinel::check())
-<h1>{{ $user->first_name }}</h1>
-@endif
     <h1>Hello World</h1>
 
     <p>
