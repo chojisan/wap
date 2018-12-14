@@ -39,15 +39,7 @@
                         <div class="card">
                             <div class="card-header">
                                 <h5>Create New Menu Item</h5>
-                                @if ($errors->any())
-                                <div class="alert aler-danger">
-                                    <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                @endif
+                                @include('partials.errors')
                             </div>
                             <div class="card-block">
                                 <div class="form-wrapper ">
@@ -123,13 +115,13 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label for="type" class="col-sm-2 col-form-label">Active</label>
+                                                <label for="status" class="col-sm-2 col-form-label">Status</label>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="active" id="active1" value="1" checked>
+                                                    <input class="form-check-input" type="radio" name="status" value="1" checked>
                                                     <label class="form-check-label" for="active1">Active</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="active" id="active2" value="0">
+                                                    <input class="form-check-input" type="radio" name="status" value="0">
                                                     <label class="form-check-label" for="active2">Inactive</label>
                                                 </div>
                                             </div>

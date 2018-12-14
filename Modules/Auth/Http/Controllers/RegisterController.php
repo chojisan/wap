@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Modules\User\Entities\User;
 use Modules\Role\Entities\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Modules\Auth\Emails\UserActivation;
+use Modules\Auth\Mail\UserActivation;
 
 use Activation;
 

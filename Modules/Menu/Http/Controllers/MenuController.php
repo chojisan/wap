@@ -41,6 +41,7 @@ class MenuController extends Controller
             'type' => 'required'
         ]);
 
+        //Menu::create(request(['title', 'type', 'description', 'parameters', 'active']));
         Menu::create($request->all());
 
         return redirect()->route('menu.index')->with('success','Menu created successfully.');
@@ -76,6 +77,7 @@ class MenuController extends Controller
             'type' => 'required'
         ]);
 
+        //$menu->update(request(['title', 'type', 'description', 'parameters', 'active']));
         $menu->update($request->all());
   
         return redirect()->route('menu.index')

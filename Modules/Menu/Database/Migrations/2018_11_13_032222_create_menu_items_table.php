@@ -16,15 +16,15 @@ class CreateMenuItemsTable extends Migration
         Schema::create('menu_items', function (Blueprint $table) {
             $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('menu_id');
+            $table->unsignedInteger('menu_id');
             $table->string('title', 100);
             $table->string('slug', 256);
             $table->string('url', 256);
             $table->integer('level');
             $table->integer('order');
-            $table->integer('parent_id');
+            $table->unsignedInteger('parent_id');
             $table->string('type', 50)->nullable();
-            $table->integer('component_id')->nullable();
+            $table->unsignedInteger('component_id')->nullable();
             $table->string('icon', 50)->nullable();
             $table->string('img')->nullable();
             $table->integer('lft')->nullable();

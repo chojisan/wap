@@ -10,7 +10,7 @@ use Template;
 use Sentinel;
 use Reminder;
 
-use Modules\Auth\Emails\ResetPassword;
+use Modules\Auth\Mail\ResetPassword;
 
 class ForgotPasswordController extends Controller
 {

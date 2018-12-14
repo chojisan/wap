@@ -42,20 +42,21 @@
                             <div class="card-header">
                                 <h5>Edit Account</h5>
                                 @if ($errors->any())
-                                <div class="alert aler-danger">
-                                    <ul>
-                                    @foreach($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+                                    <div class="alert aler-danger">
+                                        <ul>
+                                        @foreach($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
                                 @endif
                             </div>
                         <div class="card-block">
                             <div class="form-wrapper ">
                                 <form method="POST" action="{{ route('menu.update', $menu->id) }}">
-                                    @method('PATCH')
-                                    @csrf
+                                    {{ method_field('PATCH') }}
+                                    {{ csrf_field() }}
+
                                     <div class="form-content">
                                         <div class="form-group row">
                                             <label for="title" class="col-sm-2 col-form-label">Title</label>

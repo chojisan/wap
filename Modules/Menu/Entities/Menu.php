@@ -14,13 +14,13 @@ class Menu extends Model
         'active'
     ];
 
-    public function allMenuItems()
+    public function menuItems()
     {
     	return $this->hasMany(MenuItem::class);
     }
 
-    public function menuItems()
+    public function addMenuItem($menuItem)
     {
-    	return $this->allMenuItems();
+        $this->menuItems()->create($menuItem);
     }
 }

@@ -14,7 +14,7 @@ class AuthMigration extends Migration
     {
         Schema::create('activations', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id');
             $table->string('code');
             $table->boolean('completed')->default(0);
             $table->timestamp('completed_at')->nullable();
@@ -25,7 +25,7 @@ class AuthMigration extends Migration
 
         Schema::create('persistences', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id');
             $table->string('code');
             $table->timestamps();
 
@@ -35,7 +35,7 @@ class AuthMigration extends Migration
 
         Schema::create('reminders', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
+            $table->unsignedInteger('user_id');
             $table->string('code');
             $table->boolean('completed')->default(0);
             $table->timestamp('completed_at')->nullable();
@@ -56,8 +56,8 @@ class AuthMigration extends Migration
         });
 
         Schema::create('role_users', function (Blueprint $table) {
-            $table->integer('user_id')->unsigned();
-            $table->integer('role_id')->unsigned();
+            $table->unsignedInteger('user_id');
+            $table->unsignedInteger('role_id');
             $table->nullableTimestamps();
 
             $table->engine = 'InnoDB';
@@ -66,7 +66,7 @@ class AuthMigration extends Migration
 
         Schema::create('throttle', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned()->nullable();
+            $table->unsignedInteger('user_id')->nullable();
             $table->string('type');
             $table->string('ip')->nullable();
             $table->timestamps();

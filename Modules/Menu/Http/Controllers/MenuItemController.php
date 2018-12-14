@@ -33,19 +33,12 @@ class MenuItemController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function store(Request $request, $menu)
+    public function store(Menu $menu)
     {
-        $request->validate([
-            'menu_id' => 'required',
-            'title' => 'required',
-            'slug' => 'required',
-            'level' => 'required',
-            'order' => 'required',
-            'parent_id' => 'required',
-            'type' => 'required',
-        ]);
 
-        MenuItem::create($request->all());
+        $menu->addMenuItem($this->validateAttributes());
+
+        //MenuItem::create($attributes);
 
         return redirect()->route('menuitems.index', compact('menu'))->with('success','Menu Item created successfully.');
     }
@@ -77,17 +70,8 @@ class MenuItemController extends Controller
      */
     public function update(Request $request, MenuItem $menuItem)
     {
-        $request->validate([
-            'menu_id' => 'required',
-            'title' => 'required',
-            'slug' => 'required',
-            'level' => 'required',
-            'order' => 'required',
-            'parent_id' => 'required',
-            'type' => 'required',
-        ]);
 
-        $menuItem->update($request->all());
+        $menuItem->update($this->validateAttributes());
   
         return redirect()->route('menuitems.index')
                         ->with('success','Menu Item updated successfully.');
@@ -103,5 +87,22 @@ class MenuItemController extends Controller
 
         return redirect()->route('menuitems.index', compact('menu'))
                         ->with('success','Menu Item deleted successfully');
+    }
+
+    public function validateAttributes()
+    {
+        return request()->validate([
+            'menu_id' => 'required',
+            'title' => 'required',
+            'description' => '',
+            'slug' => 'required',
+            'url' => '',
+            'level' => 'required',
+            'order' => 'required',
+            'parent_id' => 'required',
+            'type' => 'required',
+            'parameters' => '',
+            'status' => '',
+        ]);
     }
 }

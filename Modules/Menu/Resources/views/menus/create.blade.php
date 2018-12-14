@@ -57,7 +57,7 @@
                                             <div class="form-group row">
                                                 <label for="title" class="col-sm-2 col-form-label">Title</label>
                                                 <div class="col-sm-10">
-                                                <input type="input" class="form-control" id="title" name="title" placeholder="Enter Title" required>
+                                                <input type="input" class="form-control" name="title" value="{{ old('title') }}" placeholder="Enter Title" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">

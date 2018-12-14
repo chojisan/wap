@@ -20,7 +20,8 @@ class MenuItem extends Model
         'img',
         'lft',
         'rgt',
-        'parameters'
+        'parameters',
+        'status'
     ];
 
     public function menu()

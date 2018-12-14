@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\Emails;
+namespace Modules\Auth\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
@@ -8,7 +8,7 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Modules\User\Entities\User;
 
-class UserActivation extends Mailable
+class ResetPassword extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -33,6 +33,6 @@ class UserActivation extends Mailable
      */
     public function build()
     {
-        return $this->view('auth::emails.activation');
+        return $this->view('auth::emails.reset-password');
     }
 }
