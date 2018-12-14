@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\Repositories;
+namespace Modules\User\Repositories;
 
 use Carbon\Carbon;
 use Modules\User\Entities\UserInterface;
@@ -15,7 +15,7 @@ class ActivationRepository implements ActivationRepositoryInterface
      *
      * @var string
      */
-    protected $model = 'Modules\Auth\Entities\Activation';
+    protected $model = 'Modules\User\Entities\Activation';
 
     /**
      * The activation expiration time, in seconds.

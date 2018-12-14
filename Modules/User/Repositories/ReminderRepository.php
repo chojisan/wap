@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\Repositories;
+namespace Modules\User\Repositories;
 
 use Carbon\Carbon;
 use Modules\User\Entities\UserInterface;
@@ -13,7 +13,7 @@ class ReminderRepository implements ReminderRepositoryInterface
 
     protected $users;
 
-    protected $model = 'Modules\Auth\Entities\Reminder';
+    protected $model = 'Modules\User\Entities\Reminder';
 
     /**
      * The expiration time in seconds.

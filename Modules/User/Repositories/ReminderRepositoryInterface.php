@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\Repositories;
+namespace Modules\User\Repositories;
 
 use Modules\User\Entities\UserInterface;
 

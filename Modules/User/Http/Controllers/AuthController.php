@@ -1,13 +1,11 @@
 <?php
 
-namespace Modules\Auth\Http\Controllers;
+namespace Modules\User\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Modules\User\Entities\User;
-use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
-use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
-use Validator;
+
 use Mail;
 use Template;
 use Sentinel;
@@ -21,7 +19,7 @@ class AuthController extends Controller
      */
     public function login()
     {
-        return view('auth::login');
+        return view('user::auth.login');
     }
 
     /**
@@ -79,7 +77,7 @@ class AuthController extends Controller
      */
     public function forgotPassword()
     {
-        return view('auth::forgot-password');
+        return view('user::auth.forgot-password');
     }
 
     /**
@@ -108,7 +106,7 @@ class AuthController extends Controller
      */
     private function sendEmail($user, $code)
     {
-        Mail::send('auth::reset-password-email', [
+        Mail::send('user::mails.reset-password', [
             'user' => $user,
             'code' => $code
         ], function($message) use ($user) {
@@ -134,7 +132,7 @@ class AuthController extends Controller
         {
             if ($code == $reminder->code)
             {
-                return view('auth::reset-password');
+                return view('user::auth.reset-password');
             }
             else
             {

@@ -5,6 +5,13 @@ namespace Modules\User\Providers;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
 
+use Modules\User\Repositories\ActivationRepository;
+use Modules\User\Repositories\ReminderRepository;
+
+use Modules\User\Entities\User;
+use Modules\User\Repositories\UserRepository;
+
+
 class UserServiceProvider extends ServiceProvider
 {
     /**
@@ -36,6 +43,9 @@ class UserServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        //$this->registerUsers();
+        $this->registerActivations();
+        //$this->registerReminders();
     }
 
     /**
@@ -99,6 +109,56 @@ class UserServiceProvider extends ServiceProvider
         if (! app()->environment('production')) {
             app(Factory::class)->load(__DIR__ . '/../Database/factories');
         }
+    }
+
+    /**
+     * Registers the users.
+     *
+     * @return void
+     */
+    protected function registerUsers()
+    {
+        $this->registerHasher();
+
+        $this->app->singleton('duyog.users', function ($app) {
+            $config = $app['config']->get('duyog.auth.users');
+
+            return new UserRepository(
+                $app['sentinel.hasher'], $app['events'], $config['model']
+            );
+        });
+    }
+
+    /**
+     * Registers the activations.
+     *
+     * @return void
+     */
+    protected function registerActivations()
+    {
+        $this->app->singleton('activation', function ($app) {
+            $config = $app['config']->get('duyog.auth.activation');
+
+            return new ActivationRepository($config['model'], $config['expires']);
+        });
+
+    }
+
+    /**
+     * Registers the reminders.
+     *
+     * @return void
+     */
+    protected function registerReminders()
+    {
+        $this->app->singleton('duyog.reminders', function ($app) {
+
+            $config = $app['config']->get('duyog.auth.reminders');
+            
+            return new ReminderRepository(
+                $app['auth'], $config['model'], $config['expires']
+            );
+        });
     }
 
     /**

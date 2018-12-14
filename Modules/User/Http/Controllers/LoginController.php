@@ -1,14 +1,12 @@
 <?php
 
-namespace Modules\Auth\Http\Controllers;
+namespace Modules\User\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Modules\User\Entities\User;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 
-use Cartalyst\Sentinel\Checkpoints\ThrottlingException;
-use Cartalyst\Sentinel\Checkpoints\NotActivatedException;
 use Auth;
 use Validator;
 
@@ -26,7 +24,7 @@ class LoginController extends Controller
      */
     public function showLoginForm()
     {
-        return view('auth::login');
+        return view('user::auth.login');
     }
 
     /**

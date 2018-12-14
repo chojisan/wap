@@ -52,7 +52,7 @@ class AuthServiceProvider extends ServiceProvider
         //dd($this->app);
         $this->app->register(RouteServiceProvider::class);
         //$this->registerUsers();
-        $this->registerActivations();
+        //$this->registerActivations();
         //$this->registerReminders();
     }
 

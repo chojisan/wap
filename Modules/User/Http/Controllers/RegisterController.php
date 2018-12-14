@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\Auth\Http\Controllers;
+namespace Modules\User\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Modules\User\Entities\User;
 use Modules\Role\Entities\Role;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Modules\Auth\Mail\UserActivation;
+use Modules\User\Mail\UserActivation;
 
 use Activation;
 
@@ -21,7 +21,7 @@ class RegisterController extends Controller
      */
     public function showRegistrationForm()
     {
-        return view('auth::register');
+        return view('user::auth.register');
     }
 
     /**

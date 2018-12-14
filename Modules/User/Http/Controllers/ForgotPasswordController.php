@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\Http\Controllers;
+namespace Modules\User\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,7 +10,7 @@ use Template;
 use Sentinel;
 use Reminder;
 
-use Modules\Auth\Mail\ResetPassword;
+use Modules\User\Mail\ResetPassword;
 
 class ForgotPasswordController extends Controller
 {
@@ -21,7 +21,7 @@ class ForgotPasswordController extends Controller
      */
     public function forgotPassword()
     {
-        return view('auth::forgot-password');
+        return view('user::auth.forgot-password');
     }
 
     /**
@@ -51,7 +51,7 @@ class ForgotPasswordController extends Controller
      */
     private function sendEmail($user, $code)
     {
-        Mail::send('auth::reset-password-email', [
+        Mail::send('user::mails.reset-password', [
             'user' => $user,
             'code' => $code
         ], function($message) use ($user) {

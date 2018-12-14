@@ -23,3 +23,29 @@ Route::prefix('backend/user')->group(function() {
 
 Route::resource('backend/user','UserController');
 //Route::get('backend/user/user-profile','UserController@userProfile');
+
+Route::prefix('auth')->group(function() {
+
+    //Route::get('/login', 'AuthController@login');
+    //Route::post('/login', 'AuthController@authenticate');
+    //Route::get('/logout', 'AuthController@logout');
+    Route::get('/login', 'LoginController@showLoginForm');
+    Route::post('/login', 'LoginController@authenticate');
+    Route::get('/logout', 'LoginController@logout');
+
+    //Route::get('/forgot-password', 'AuthController@forgotPassword');
+    //Route::post('/forgot-password', 'AuthController@postForgotPassword');
+    Route::get('/forgot-password', 'ForgotPasswordController@forgotPassword');
+    Route::post('/forgot-password', 'ForgotPasswordController@postForgotPassword');
+
+
+    Route::get('/reset/{email}/{code}', 'AuthController@reset');
+    Route::post('/reset/{email}/{code}', 'AuthController@postResetPassword');
+    //Route::get('/reset/{email}/{code}', 'ResetPasswordController@reset');
+    //Route::post('/reset/{email}/{code}', 'ResetPasswordController@postResetPassword');
+
+    Route::get('/register', 'RegisterController@showRegistrationForm');
+    Route::post('/register', 'RegisterController@register');
+    Route::get('/activate/{email}/{code}', 'RegisterController@activate');
+
+});

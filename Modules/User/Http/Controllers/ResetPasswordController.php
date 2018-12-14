@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Auth\Http\Controllers;
+namespace Modules\User\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -33,7 +33,7 @@ class ResetPasswordController extends Controller
         {
             if ($code == $reminder->code)
             {
-                return view('auth::reset-password');
+                return view('user::auth.reset-password');
             }
             else
             {

@@ -211,8 +211,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
 
         'Template' => Modules\Template\Facades\Template::class,
-        'Activation' => Modules\Auth\Facades\Activation::class,
-        'Reminder' => Modules\Auth\Facades\Reminder::class,
+        'Activation' => Modules\User\Facades\Activation::class,
+        'Reminder' => Modules\User\Facades\Reminder::class,
 
 
     ],
